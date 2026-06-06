@@ -177,7 +177,10 @@ export default function EventDetails({ event, past = false, onClose }) {
   return (
     <div className="absolute inset-0 z-50 flex flex-col bg-ink">
       {/* TOP BAR — sticky-ish header inside the sheet */}
-      <div className="flex items-center justify-between gap-3 border-b-[3px] border-bone bg-ink px-3 py-2">
+      <div
+        className="flex items-center justify-between gap-3 border-b-[3px] border-bone bg-ink px-3 py-2"
+        style={{ paddingTop: 'calc(env(safe-area-inset-top) + 0.5rem)' }}
+      >
         <div className="flex items-center gap-2">
           <button
             onClick={onClose}

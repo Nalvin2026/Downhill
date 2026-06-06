@@ -13,7 +13,10 @@ const HEADLINES = [
 export default function Header({ showMarquee = true }) {
   const dateStr = TODAY.toISOString().slice(0, 10).replace(/-/g, '·')
   return (
-    <header className="relative z-40 border-b-[3px] border-bone/90 bg-ink">
+    <header
+      className="relative z-40 border-b-[3px] border-bone/90 bg-ink"
+      style={{ paddingTop: 'env(safe-area-inset-top)' }}
+    >
       {/* Status bar — pixel font */}
       <div className="flex items-center justify-between px-4 pt-3 pb-1.5 font-pixel text-[15px] leading-none text-bone/80">
         <span className="flex items-center gap-1.5">
