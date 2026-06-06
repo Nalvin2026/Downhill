@@ -5,7 +5,11 @@
       "WebFetch(domain:en.wikipedia.org)",
       "Bash(git add *)",
       "Bash(git -c commit.gpgsign=false commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(npm install *)",
+      "Bash(node scripts/build-icons.mjs)",
+      "Bash(npm run *)",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }
