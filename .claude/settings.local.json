@@ -14,7 +14,10 @@
       "WebSearch",
       "WebFetch(domain:www.ucimtbworldseries.com)",
       "WebFetch(domain:ucimtbworldseries.com)",
-      "WebFetch(domain:www.pinkbike.com)"
+      "WebFetch(domain:www.pinkbike.com)",
+      "WebFetch(domain:mbaction.com)",
+      "WebFetch(domain:www.vitalmtb.com)",
+      "WebFetch(domain:www.uci.org)"
     ]
   }
 }
