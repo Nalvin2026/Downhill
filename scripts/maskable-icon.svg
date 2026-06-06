@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Maskable variant — content centered with extra padding so Android's
+       circular / rounded-square masks don't clip the wordmark. Safe zone is
+       a centered 410x410 box (80% of 512). -->
+  <rect width="512" height="512" fill="#0A0A0A"/>
+
+  <g fill="#1A1A19">
+    <rect x="0" y="80"  width="512" height="2"/>
+    <rect x="0" y="160" width="512" height="2"/>
+    <rect x="0" y="240" width="512" height="2"/>
+    <rect x="0" y="320" width="512" height="2"/>
+    <rect x="0" y="400" width="512" height="2"/>
+  </g>
+
+  <!-- DH wordmark shrunk so it lives comfortably inside the safe zone -->
+  <text
+    x="256"
+    y="312"
+    font-family="Archivo Black, Arial Black, Helvetica, sans-serif"
+    font-size="200"
+    font-weight="900"
+    fill="#DBFF00"
+    text-anchor="middle"
+    letter-spacing="-9"
+  >DH</text>
+
+  <!-- Double-slash accent -->
+  <rect x="160" y="340" width="40"  height="18" fill="#EDE9D8"/>
+  <rect x="210" y="340" width="40"  height="18" fill="#EDE9D8"/>
+  <rect x="260" y="340" width="160" height="18" fill="#DBFF00"/>
+
+  <!-- Downhill chevron -->
+  <polygon
+    points="238,374 274,374 256,406"
+    fill="#FF3336"
+    stroke="#0A0A0A"
+    stroke-width="2.5"
+  />
+</svg>
