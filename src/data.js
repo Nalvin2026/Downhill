@@ -913,11 +913,109 @@ export const eventDetails = {
   },
 }
 
-// Rider profiles — only authored for top-3 of each series × gender (12 total).
-// Career stats are realistic-ish placeholders; swap in confirmed figures later.
+// Rider profiles — top-3 of each series × gender plus past favourites.
+// Career stats are realistic-ish; swap in confirmed figures over time.
 // Keyed by rider name exactly as it appears in standings.
 export const riderProfiles = {
-  // ── UCI ELITE MEN — TOP 3 ──
+  // ── UCI ELITE MEN — 2026 TOP 3 ──
+  'Luca Shaw': {
+    nationality: 'USA',
+    age: 30,
+    height: '188 CM',
+    weight: '83 KG',
+    bike: 'Canyon Sender CFR',
+    team: 'Canyon DH Racing',
+    joined: '2014',
+    careerWins: 2,
+    wcPodiums: 14,
+    bestResult: 'WC WIN · LOUDENVIELLE 2026',
+    terrain: 'STEEP TECH',
+    style: 'TALL / LATE-BRAKE',
+    nickname: 'SHAW',
+    bio: 'American veteran from North Carolina who finally broke through in 2026. Long arms, long reach, late commits — finds time in the steep stuff where most riders are surviving.',
+    accent: 'wire',
+    photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Luca_Shaw_2024_US_Open_of_Downhill_MTB.jpg/500px-Luca_Shaw_2024_US_Open_of_Downhill_MTB.jpg',
+    photoCredit: 'Wikimedia Commons',
+  },
+  'Benoit Coulanges': {
+    nationality: 'FRA',
+    age: 32,
+    height: '180 CM',
+    weight: '78 KG',
+    bike: 'Scott Gambler',
+    team: 'Scott Downhill Factory',
+    joined: '2013',
+    careerWins: 1,
+    wcPodiums: 9,
+    bestResult: 'WC WIN · LOURDES 2022',
+    terrain: 'ALL-TERRAIN',
+    style: 'METRONOMIC / FLOWY',
+    nickname: 'COULANGES',
+    bio: 'French veteran who has spent over a decade fighting near the top of the elite field. Smooth and surgical through technical sections, podium-fixture form in 2026.',
+    accent: 'punch',
+    photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Beno%C3%AEt_Coulanges_2024_MSA.jpg/500px-Beno%C3%AEt_Coulanges_2024_MSA.jpg',
+    photoCredit: 'Wikimedia Commons',
+  },
+  'Amaury Pierron': {
+    nationality: 'FRA',
+    age: 30,
+    height: '180 CM',
+    weight: '79 KG',
+    bike: 'Commencal Supreme DH',
+    team: 'Commencal / Muc-Off',
+    joined: '2014',
+    careerWins: 8,
+    wcPodiums: 24,
+    bestResult: 'WC OVERALL · 2018',
+    terrain: 'STEEP / WILD',
+    style: 'ALL-OR-NOTHING',
+    nickname: 'TONTON',
+    bio: '2018 World Cup overall champion. Comes from a downhill family — both brothers race elite too. Throws the bike at everything and finds time nobody else can.',
+    accent: 'acid',
+    photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Amaury_Pierron_2022_MSA.jpg/500px-Amaury_Pierron_2022_MSA.jpg',
+    photoCredit: 'Wikimedia Commons',
+  },
+
+  // ── UCI ELITE WOMEN — 2026 TOP 3 ──
+  // Vali Höll keeps her existing profile below.
+  'Myriam Nicole': {
+    nationality: 'FRA',
+    age: 36,
+    height: '170 CM',
+    weight: '63 KG',
+    bike: 'Commencal Supreme DH',
+    team: 'Commencal / Muc-Off',
+    joined: '2010',
+    careerWins: 10,
+    wcPodiums: 60,
+    bestResult: '2× WORLD CHAMPION',
+    terrain: 'TECH · ROOTS',
+    style: 'SURGICAL / VETERAN',
+    nickname: 'PUPUCE',
+    bio: 'Two-time UCI World Champion (2019, 2021) from southern France. Sixteen years on the World Cup circuit and still drilling podium runs in 2026 — pure technique and zero panic.',
+    accent: 'punch',
+    photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/08481283LakePlacidWCSteve100225.jpg/500px-08481283LakePlacidWCSteve100225.jpg',
+    photoCredit: 'Wikimedia Commons',
+  },
+  'Valentina Roa Sanchez': {
+    nationality: 'COL',
+    age: 22,
+    height: '163 CM',
+    weight: '58 KG',
+    bike: 'Mondraker Summum',
+    team: 'MS-Racing',
+    joined: '2024',
+    careerWins: 0,
+    wcPodiums: 2,
+    bestResult: 'WC TOP 5 · YONGPYONG 2026',
+    terrain: 'ALL-TERRAIN',
+    style: 'BOLD / FAST-LEARNER',
+    nickname: 'VALE',
+    bio: 'Colombian breakout star making her elite mark in 2026. Came up through Latin American DH and translates raw fearless speed straight to the World Cup. Generational talent on a rocket.',
+    accent: 'wire',
+  },
+
+  // ── PREVIOUS UCI TOP RIDERS — kept for chase-pack tap-through ──
   'Jackson Goldstone': {
     nationality: 'CAN',
     age: 21,
