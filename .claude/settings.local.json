@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(gh --version)"
+      "Bash(gh --version)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "Bash(git add *)",
+      "Bash(git -c commit.gpgsign=false commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
