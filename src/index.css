@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --acid: #DBFF00;
+  --ink: #0A0A0A;
+  --bone: #EDE9D8;
+  /* Secondary accents — use sparingly */
+  --siren: #FF3336;
+  --wire:  #1DC4FD;
+  --punch: #E00D68;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--ink);
+}
+
+body {
+  margin: 0;
+  font-family: 'Archivo', system-ui, sans-serif;
+  color: var(--bone);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior: none;
+}
+
+::selection { background: var(--acid); color: var(--ink); }
+
+/* Grain overlay — sits above everything, no interaction */
+.grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Diagonal stripes utility */
+.stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #0A0A0A 0 6px,
+    #DBFF00 6px 10px
+  );
+}
+
+.stripes-bone {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #0A0A0A 0 4px,
+    #EDE9D8 4px 7px
+  );
+}
+
+/* Scanline texture */
+.scanline {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.05) 0 1px,
+    transparent 1px 3px
+  );
+}
+
+/* Dotted matrix background */
+.dots {
+  background-image: radial-gradient(rgba(237,233,216,0.18) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+/* Ticket perforation row — provides two cutouts at the edges */
+.perf {
+  position: relative;
+}
+.perf::before,
+.perf::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--ink);
+  border: 3px solid #0A0A0A;
+  transform: translateY(-50%);
+}
+.perf::before { left: -12px; }
+.perf::after  { right: -12px; }
+
+/* Marquee container */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* No autofill chrome */
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0 30px #0A0A0A inset; -webkit-text-fill-color: #EDE9D8; }
