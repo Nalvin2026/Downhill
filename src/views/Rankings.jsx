@@ -69,13 +69,18 @@ function GenderTabs({ value, onChange }) {
 }
 
 // Combined "current leader + P01 podium" card — one unified treatment for #1.
-function HeroBlock({ leader, gender, leaderPoints }) {
+function HeroBlock({ leader, gender, leaderPoints, onClick }) {
   const isMen = gender === 'men'
   const genderBg = isMen ? 'bg-wire' : 'bg-punch'
   const genderLetter = isMen ? 'M' : 'W'
   const pct = Math.max(8, Math.round((leader.points / leaderPoints) * 100))
 
   return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="block w-full text-left"
+    >
     <div className="relative overflow-hidden border-[3px] border-bone shadow-[6px_6px_0_0_#000]">
       <div className="absolute inset-0 scanline opacity-50" />
 
@@ -143,10 +148,11 @@ function HeroBlock({ leader, gender, leaderPoints }) {
         </div>
       </div>
     </div>
+    </button>
   )
 }
 
-export default function Rankings() {
+export default function Rankings({ onOpenRider }) {
   const [series, setSeries] = useState('UCI')
   const [gender, setGender] = useState('men')
   const meta = standings[series]
@@ -183,7 +189,14 @@ export default function Rankings() {
       </div>
 
       <div className="mb-4">
-        <HeroBlock leader={list[0]} gender={gender} leaderPoints={leaderPoints} />
+        <HeroBlock
+          leader={list[0]}
+          gender={gender}
+          leaderPoints={leaderPoints}
+          onClick={() =>
+            onOpenRider?.({ entry: list[0], rank: 1, series, gender })
+          }
+        />
       </div>
 
       {/* PODIUM 2 & 3 — #1 lives in the hero card above */}
@@ -195,6 +208,9 @@ export default function Rankings() {
             rank={i + 2}
             leaderPoints={leaderPoints}
             index={i + 1}
+            onClick={() =>
+              onOpenRider?.({ entry: e, rank: i + 2, series, gender })
+            }
           />
         ))}
       </div>

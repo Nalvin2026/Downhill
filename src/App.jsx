@@ -4,6 +4,7 @@ import Nav from './components/Nav'
 import Schedule from './views/Schedule'
 import Rankings from './views/Rankings'
 import EventDetails from './components/EventDetails'
+import RiderDetails from './components/RiderDetails'
 import { TODAY } from './data'
 
 // Each view stays mounted in its own scroll container so switching
@@ -24,6 +25,7 @@ function ViewSlot({ active, children }) {
 export default function App() {
   const [view, setView] = useState('schedule')
   const [selectedEvent, setSelectedEvent] = useState(null)
+  const [selectedRider, setSelectedRider] = useState(null)
 
   const selectedIsPast = useMemo(() => {
     if (!selectedEvent) return false
@@ -50,7 +52,7 @@ export default function App() {
         </ViewSlot>
         <ViewSlot active={view === 'rankings'}>
           <div className="pb-10">
-            <Rankings />
+            <Rankings onOpenRider={setSelectedRider} />
           </div>
         </ViewSlot>
       </main>
@@ -63,6 +65,17 @@ export default function App() {
           event={selectedEvent}
           past={selectedIsPast}
           onClose={() => setSelectedEvent(null)}
+        />
+      )}
+
+      {/* Rider profile sheet — same full-frame treatment. */}
+      {selectedRider && (
+        <RiderDetails
+          rider={selectedRider.entry}
+          rank={selectedRider.rank}
+          series={selectedRider.series}
+          gender={selectedRider.gender}
+          onClose={() => setSelectedRider(null)}
         />
       )}
     </div>

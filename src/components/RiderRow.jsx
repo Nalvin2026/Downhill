@@ -46,17 +46,14 @@ function PodiumStamp({ rank }) {
   )
 }
 
-export default function RiderRow({ entry, rank, leaderPoints, index }) {
+export default function RiderRow({ entry, rank, leaderPoints, index, onClick }) {
   const isPodium = rank <= 3
   const pct = Math.max(8, Math.round((entry.points / leaderPoints) * 100))
   const delay = `${Math.min(index * 35, 600)}ms`
 
   if (isPodium) {
-    return (
-      <article
-        className="animate-in border-[3px] border-bone bg-bone text-ink shadow-[6px_6px_0_0_#000]"
-        style={{ animationDelay: delay }}
-      >
+    const Inner = (
+      <div className="border-[3px] border-bone bg-bone text-ink shadow-[6px_6px_0_0_#000]">
         <div className="flex items-stretch gap-3 p-3">
           <PodiumStamp rank={rank} />
           <div className="min-w-0 flex-1">
@@ -87,6 +84,21 @@ export default function RiderRow({ entry, rank, leaderPoints, index }) {
             <span className="font-mono text-[10px] text-bone/70">PTS</span>
           </div>
         </div>
+      </div>
+    )
+    return (
+      <article className="animate-in" style={{ animationDelay: delay }}>
+        {onClick ? (
+          <button
+            type="button"
+            onClick={onClick}
+            className="block w-full text-left"
+          >
+            {Inner}
+          </button>
+        ) : (
+          Inner
+        )}
       </article>
     )
   }
