@@ -1174,16 +1174,16 @@ export function fmtDateRange(startISO, endISO) {
   const s = new Date(startISO)
   const e = new Date(endISO)
   const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
-  if (s.getMonth() === e.getMonth()) {
-    return {
-      day: `${String(s.getDate()).padStart(2,'0')}–${String(e.getDate()).padStart(2,'0')}`,
-      month: months[s.getMonth()],
-      year: s.getFullYear(),
-    }
-  }
+  const startDay = String(s.getDate()).padStart(2, '0')
+  const endDay = String(e.getDate()).padStart(2, '0')
+  // Same visual rhythm whether the range stays in one month or spans two:
+  // big DD–DD on top, month(s) and year on the subtitle line.
   return {
-    day: `${String(s.getDate()).padStart(2,'0')} ${months[s.getMonth()]} → ${String(e.getDate()).padStart(2,'0')} ${months[e.getMonth()]}`,
-    month: '',
+    day: `${startDay}–${endDay}`,
+    month:
+      s.getMonth() === e.getMonth()
+        ? months[s.getMonth()]
+        : `${months[s.getMonth()]}→${months[e.getMonth()]}`,
     year: s.getFullYear(),
   }
 }
