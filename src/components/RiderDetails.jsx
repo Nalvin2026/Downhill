@@ -125,6 +125,7 @@ export default function RiderDetails({ rider, rank, series, gender, onClose }) {
               rider={rider.rider}
               country={rider.country}
               accent={profile?.accent || 'acid'}
+              photoUrl={profile?.photoUrl}
             />
             <div className="flex flex-col justify-between gap-2">
               <div>

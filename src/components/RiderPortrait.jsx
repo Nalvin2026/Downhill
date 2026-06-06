@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // Brutalist stylized portrait — helmet + goggles + jersey silhouette with the
 // rider's initials. Stands in for a real photo and stays on-brand.
+// If `photoUrl` is provided, that image is rendered instead, with the SVG as
+// a fallback if the photo fails to load.
 //
 // Accent palette options: 'acid' (default), 'wire', 'punch'
 const ACCENT_HEX = {
@@ -10,7 +12,10 @@ const ACCENT_HEX = {
   punch: '#E00D68',
 }
 
-export default function RiderPortrait({ rider, country, accent = 'acid', size = 'lg' }) {
+export default function RiderPortrait({ rider, country, accent = 'acid', photoUrl }) {
+  const [photoFailed, setPhotoFailed] = useState(false)
+  const showPhoto = photoUrl && !photoFailed
+
   const initials = rider
     .split(/\s+/)
     .map((n) => n[0])
@@ -21,6 +26,16 @@ export default function RiderPortrait({ rider, country, accent = 'acid', size = 
 
   return (
     <div className="relative aspect-square overflow-hidden border-[3px] border-bone bg-ink">
+      {showPhoto && (
+        <img
+          src={photoUrl}
+          alt={rider}
+          loading="lazy"
+          onError={() => setPhotoFailed(true)}
+          className="absolute inset-0 block h-full w-full object-cover"
+        />
+      )}
+      {!showPhoto && (
       <svg
         viewBox="0 0 100 100"
         preserveAspectRatio="xMidYMid slice"
@@ -83,6 +98,7 @@ export default function RiderPortrait({ rider, country, accent = 'acid', size = 
         {/* Chin guard line */}
         <rect x="34" y="60" width="32" height="3" fill="#0A0A0A" />
       </svg>
+      )}
 
       {/* Country code corner badge */}
       <div className="absolute left-2 top-2 border-[2px] border-bone bg-ink px-1.5 py-0.5 font-mono text-[10px] font-bold leading-none text-bone">

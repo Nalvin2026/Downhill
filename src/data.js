@@ -668,6 +668,8 @@ export const riderProfiles = {
     nickname: 'JG',
     bio: 'Canadian phenom from Whistler. Crowned 2024 World Champion in his second elite year. Reads steep loam like a sixth sense and rarely puts a foot down.',
     accent: 'wire',
+    photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Jackson_goldstone_snowshoe_2022.jpg/500px-Jackson_goldstone_snowshoe_2022.jpg',
+    photoCredit: 'Wikimedia Commons',
   },
   'Loïc Bruni': {
     nationality: 'FRA',
@@ -685,6 +687,8 @@ export const riderProfiles = {
     nickname: 'THE BOSS',
     bio: 'Five-time World Champion from Nice. The benchmark for consistency at the top of the sport. Wins on every surface from Lourdes mud to Val di Sole dust.',
     accent: 'acid',
+    photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Loic_Bruni_2015_world_champion.jpg/500px-Loic_Bruni_2015_world_champion.jpg',
+    photoCredit: 'Wikimedia Commons',
   },
   'Andreas Kolb': {
     nationality: 'AUT',
@@ -721,6 +725,8 @@ export const riderProfiles = {
     nickname: 'VALI',
     bio: 'Austrian dominator who came up through junior racing without losing — and translated it straight to elite domination. Two-time World Champion, fastest split times of the women\'s field.',
     accent: 'acid',
+    photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Valentina_H%C3%B6ll_%28AUT%29_2025.jpg/500px-Valentina_H%C3%B6ll_%28AUT%29_2025.jpg',
+    photoCredit: 'Wikimedia Commons',
   },
   'Tahnée Seagrave': {
     nationality: 'GBR',
@@ -738,6 +744,8 @@ export const riderProfiles = {
     nickname: 'T-DOG',
     bio: 'British veteran from Cornwall. Smooth and surgical through the steep stuff. Returned from a string of injuries to remain a podium fixture every weekend.',
     accent: 'punch',
+    photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Tahnee_seagrave_2024_msa.jpg/500px-Tahnee_seagrave_2024_msa.jpg',
+    photoCredit: 'Wikimedia Commons',
   },
   'Marine Cabirou': {
     nationality: 'FRA',
@@ -755,6 +763,8 @@ export const riderProfiles = {
     nickname: 'MARINE',
     bio: 'French speed merchant from Millau. Throws the bike sideways through the loose stuff and finds time where nobody else does. Pyrenean specialist.',
     accent: 'wire',
+    photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/10342221LakePlacidWCSteve100425.jpg/500px-10342221LakePlacidWCSteve100425.jpg',
+    photoCredit: 'Wikimedia Commons',
   },
 
   // ── iXS ELITE MEN — TOP 3 ──
