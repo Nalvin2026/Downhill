@@ -16,6 +16,7 @@ export const COUNTRY_NAMES = {
   GER: 'Germany',
   IRL: 'Ireland',
   ITA: 'Italy',
+  KOR: 'South Korea',
   NED: 'Netherlands',
   NOR: 'Norway',
   NZL: 'New Zealand',
@@ -40,20 +41,23 @@ export const SERIES = {
   },
 }
 
-// 2026 calendar — mixed UCI DHI + iXS rounds (incl. iXS European DH Cup)
+// 2026 calendar — real UCI DHI World Cup rounds + iXS rounds.
+// UCI calendar matches uci.org / Mountain Bike World Series 2026.
 export const events = [
-  // ── PAST ──
+  // ── UCI ROUND 1 — KOREA ──
   {
-    id: 'uci-r1-bielsko',
+    id: 'uci-r1-yongpyong',
     series: 'UCI',
     tier: 'WORLD CUP',
     round: 1,
-    venue: 'BIELSKO-BIAŁA',
-    country: 'POL',
-    region: 'CARPATHIANS',
-    start: '2026-04-24',
-    end: '2026-04-26',
+    venue: 'MONA YONGPYONG',
+    country: 'KOR',
+    region: 'GANGWON',
+    start: '2026-05-01',
+    end: '2026-05-03',
   },
+
+  // ── iXS R1 — MARIBOR ──
   {
     id: 'ixs-eu-r1-maribor',
     series: 'IXS',
@@ -65,19 +69,21 @@ export const events = [
     start: '2026-05-09',
     end: '2026-05-10',
   },
+
+  // ── UCI ROUND 2 — LOUDENVIELLE-PEYRAGUDES ──
   {
     id: 'uci-r2-loudenvielle',
     series: 'UCI',
     tier: 'WORLD CUP',
     round: 2,
-    venue: 'LOUDENVIELLE',
+    venue: 'LOUDENVIELLE—PEYRAGUDES',
     country: 'FRA',
     region: 'PYRENEES',
-    start: '2026-05-22',
-    end: '2026-05-24',
+    start: '2026-05-28',
+    end: '2026-05-31',
   },
 
-  // ── UPCOMING ──
+  // ── iXS R2 — LA MOLINA ──
   {
     id: 'ixs-eu-r2-lamolina',
     series: 'IXS',
@@ -89,6 +95,8 @@ export const events = [
     start: '2026-06-06',
     end: '2026-06-07',
   },
+
+  // ── UCI ROUND 3 — SAALFELDEN-LEOGANG ──
   {
     id: 'uci-r3-leogang',
     series: 'UCI',
@@ -96,10 +104,12 @@ export const events = [
     round: 3,
     venue: 'SAALFELDEN—LEOGANG',
     country: 'AUT',
-    region: 'ALPS',
-    start: '2026-06-12',
+    region: 'SALZBURG',
+    start: '2026-06-11',
     end: '2026-06-14',
   },
+
+  // ── iXS R3 — SEMMERING (overlaps with Lenzerheide; iXS regional) ──
   {
     id: 'ixs-r3-semmering',
     series: 'IXS',
@@ -111,17 +121,47 @@ export const events = [
     start: '2026-06-19',
     end: '2026-06-21',
   },
+
+  // ── UCI ROUND 4 — LENZERHEIDE ──
   {
-    id: 'uci-r4-valdisole',
+    id: 'uci-r4-lenzerheide',
     series: 'UCI',
     tier: 'WORLD CUP',
     round: 4,
-    venue: 'VAL DI SOLE',
+    venue: 'LENZERHEIDE',
+    country: 'SUI',
+    region: 'GRAUBÜNDEN',
+    start: '2026-06-19',
+    end: '2026-06-21',
+  },
+
+  // ── UCI ROUND 5 — LA THUILE ──
+  {
+    id: 'uci-r5-lathuile',
+    series: 'UCI',
+    tier: 'WORLD CUP',
+    round: 5,
+    venue: 'LA THUILE',
     country: 'ITA',
-    region: 'DOLOMITES',
-    start: '2026-07-04',
+    region: 'AOSTA VALLEY',
+    start: '2026-07-03',
     end: '2026-07-05',
   },
+
+  // ── UCI ROUND 6 — PAL ARINSAL ──
+  {
+    id: 'uci-r6-andorra',
+    series: 'UCI',
+    tier: 'WORLD CUP',
+    round: 6,
+    venue: 'PAL ARINSAL',
+    country: 'AND',
+    region: 'ANDORRA',
+    start: '2026-07-10',
+    end: '2026-07-12',
+  },
+
+  // ── iXS R4 — ŠPIČÁK ──
   {
     id: 'ixs-eu-r3-spicak',
     series: 'IXS',
@@ -133,28 +173,21 @@ export const events = [
     start: '2026-07-18',
     end: '2026-07-19',
   },
+
+  // ── UCI ROUND 7 — LES GETS ──
   {
-    id: 'uci-r5-lesgets',
+    id: 'uci-r7-lesgets',
     series: 'UCI',
     tier: 'WORLD CUP',
-    round: 5,
+    round: 7,
     venue: 'LES GETS',
     country: 'FRA',
-    region: 'PORTES DU S.',
-    start: '2026-08-01',
-    end: '2026-08-02',
+    region: 'HAUTE-SAVOIE',
+    start: '2026-08-20',
+    end: '2026-08-23',
   },
-  {
-    id: 'uci-r6-andorra',
-    series: 'UCI',
-    tier: 'WORLD CUP',
-    round: 6,
-    venue: 'PAL ARINSAL',
-    country: 'AND',
-    region: 'ANDORRA',
-    start: '2026-08-08',
-    end: '2026-08-09',
-  },
+
+  // ── UCI WORLD CHAMPIONSHIPS — VAL DI SOLE ──
   {
     id: 'uci-worlds-valdisole',
     series: 'UCI',
@@ -166,6 +199,8 @@ export const events = [
     start: '2026-08-26',
     end: '2026-08-30',
   },
+
+  // ── iXS R5 — SCHLADMING ──
   {
     id: 'ixs-r5-schladming',
     series: 'IXS',
@@ -176,6 +211,32 @@ export const events = [
     region: 'ENNSTAL',
     start: '2026-09-04',
     end: '2026-09-06',
+  },
+
+  // ── UCI ROUND 8 — WHISTLER ──
+  {
+    id: 'uci-r8-whistler',
+    series: 'UCI',
+    tier: 'WORLD CUP',
+    round: 8,
+    venue: 'WHISTLER',
+    country: 'CAN',
+    region: 'BRITISH COL.',
+    start: '2026-09-25',
+    end: '2026-09-27',
+  },
+
+  // ── UCI ROUND 9 — LAKE PLACID ──
+  {
+    id: 'uci-r9-lakeplacid',
+    series: 'UCI',
+    tier: 'WORLD CUP',
+    round: 9,
+    venue: 'LAKE PLACID',
+    country: 'USA',
+    region: 'ADIRONDACKS',
+    start: '2026-10-02',
+    end: '2026-10-04',
   },
 ]
 
@@ -254,19 +315,19 @@ export const standings = {
 //
 // Track paths are intentionally angular / stylized — not topographically real.
 export const eventDetails = {
-  'uci-r1-bielsko': {
+  'uci-r1-yongpyong': {
     track: {
-      path: 'M 50 8 L 30 18 L 58 26 L 28 38 C 60 48, 40 58, 60 70 L 32 80 L 52 94',
-      // Szczyrk / Bielsko-Biała World Cup — approx 1.8 km, 330 m drop, forest flow
-      stats: { length: '1.8 KM', drop: '330 M', maxGradient: '36%', topSpeed: '56 KM/H', surface: 'BEECH FOREST · LOAM · ROOTS' },
+      path: 'M 48 8 L 30 22 L 60 32 Q 30 48, 55 56 T 35 72 L 55 86 L 45 96',
+      // Mona Yongpyong — first DH WC in Korea, hosted at the ski resort venue
+      stats: { length: '2.0 KM', drop: '520 M', maxGradient: '38%', topSpeed: '68 KM/H', surface: 'KOREAN ALPINE · MIXED · TECH' },
       checkpoints: [
-        { x: 50, y: 8, label: 'START' },
-        { x: 28, y: 38, label: 'S1' },
-        { x: 60, y: 70, label: 'S2' },
-        { x: 52, y: 94, label: 'FINISH' },
+        { x: 48, y: 8, label: 'START' },
+        { x: 30, y: 48, label: 'S1' },
+        { x: 35, y: 72, label: 'S2' },
+        { x: 45, y: 96, label: 'FINISH' },
       ],
-      // Fast wooded; steady gradient with a flat run-in to the finish
-      elevation: [100, 96, 90, 80, 72, 66, 58, 50, 42, 34, 28, 24, 18, 8, 0],
+      // Steep alpine top, flatter mid, drop into finish
+      elevation: [100, 88, 76, 66, 60, 54, 48, 40, 34, 28, 20, 14, 8, 3, 0],
     },
     weekend: [
       { day: 'FRI', label: 'PRACTICE', time: '09:00 → 17:00', status: 'done' },
@@ -276,14 +337,14 @@ export const eventDetails = {
     previousPodium: {
       year: 2025,
       men: [
-        { rider: 'Jackson Goldstone', country: 'CAN', time: '3:31.84' },
-        { rider: 'Loïc Bruni',        country: 'FRA', time: '+0.42'   },
-        { rider: 'Andreas Kolb',      country: 'AUT', time: '+1.16'   },
+        { rider: 'Jackson Goldstone', country: 'CAN', time: '3:18.42' },
+        { rider: 'Loïc Bruni',        country: 'FRA', time: '+0.31'   },
+        { rider: 'Finn Iles',         country: 'CAN', time: '+0.94'   },
       ],
       women: [
-        { rider: 'Vali Höll',         country: 'AUT', time: '4:02.51' },
-        { rider: 'Marine Cabirou',    country: 'FRA', time: '+0.88'   },
-        { rider: 'Nina Hoffmann',     country: 'GER', time: '+1.94'   },
+        { rider: 'Vali Höll',         country: 'AUT', time: '3:48.20' },
+        { rider: 'Marine Cabirou',    country: 'FRA', time: '+0.72'   },
+        { rider: 'Tahnée Seagrave',   country: 'GBR', time: '+1.54'   },
       ],
     },
   },
@@ -449,19 +510,19 @@ export const eventDetails = {
       ],
     },
   },
-  'uci-r4-valdisole': {
+  'uci-r4-lenzerheide': {
     track: {
-      path: 'M 50 8 L 45 22 L 60 30 L 30 40 L 55 52 L 32 66 L 60 78 L 48 94',
-      // Black Snake — famously steep top, rooty mid section, fast bottom
-      stats: { length: '1.7 KM', drop: '470 M', maxGradient: '48%', topSpeed: '58 KM/H', surface: 'BLACK SNAKE · ROOT TECH · DUST' },
+      path: 'M 50 8 Q 30 22, 55 32 L 30 44 Q 60 56, 35 66 T 60 82 L 48 94',
+      // Lenzerheide WC track — Swiss alpine classic with steep wooded sections
+      stats: { length: '2.4 KM', drop: '700 M', maxGradient: '42%', topSpeed: '72 KM/H', surface: 'SWISS ALPS · ROCK · ROOTS' },
       checkpoints: [
         { x: 50, y: 8, label: 'START' },
-        { x: 30, y: 40, label: 'S1' },
-        { x: 32, y: 66, label: 'S2' },
+        { x: 30, y: 44, label: 'S1' },
+        { x: 35, y: 66, label: 'S2' },
         { x: 48, y: 94, label: 'FINISH' },
       ],
-      // Hell-steep opening face → rooty traverse → final plunge
-      elevation: [100, 84, 68, 56, 52, 48, 44, 40, 32, 24, 18, 12, 6, 2, 0],
+      // Open alpine top → steep wooded mid → fast finish
+      elevation: [100, 92, 82, 72, 64, 58, 50, 42, 36, 30, 22, 14, 8, 3, 0],
     },
     weekend: [
       { day: 'FRI', label: 'PRACTICE', time: '09:00 → 17:00', status: 'upcoming' },
@@ -471,14 +532,48 @@ export const eventDetails = {
     previousPodium: {
       year: 2025,
       men: [
-        { rider: 'Loris Vergier',     country: 'FRA', time: '3:01.74' },
-        { rider: 'Jackson Goldstone', country: 'CAN', time: '+0.21'   },
-        { rider: 'Bernard Kerr',      country: 'GBR', time: '+1.32'   },
+        { rider: 'Loris Vergier',     country: 'FRA', time: '3:42.18' },
+        { rider: 'Jackson Goldstone', country: 'CAN', time: '+0.42'   },
+        { rider: 'Andreas Kolb',      country: 'AUT', time: '+1.08'   },
       ],
       women: [
-        { rider: 'Marine Cabirou',    country: 'FRA', time: '3:32.84' },
-        { rider: 'Vali Höll',         country: 'AUT', time: '+0.16'   },
-        { rider: 'Camille Balanche',  country: 'SUI', time: '+1.40'   },
+        { rider: 'Vali Höll',         country: 'AUT', time: '4:11.62' },
+        { rider: 'Camille Balanche',  country: 'SUI', time: '+0.71'   },
+        { rider: 'Marine Cabirou',    country: 'FRA', time: '+1.34'   },
+      ],
+    },
+  },
+
+  'uci-r5-lathuile': {
+    track: {
+      path: 'M 50 8 L 35 18 L 62 28 Q 28 42, 55 50 T 35 68 L 58 82 L 48 96',
+      // La Thuile — Aosta Valley, big alpine descent, fast and open
+      stats: { length: '2.5 KM', drop: '780 M', maxGradient: '44%', topSpeed: '78 KM/H', surface: 'AOSTA ALPINE · TECH · OPEN' },
+      checkpoints: [
+        { x: 50, y: 8, label: 'START' },
+        { x: 28, y: 42, label: 'S1' },
+        { x: 35, y: 68, label: 'S2' },
+        { x: 48, y: 96, label: 'FINISH' },
+      ],
+      // Long sustained descent with a steep section in the middle
+      elevation: [100, 90, 80, 70, 60, 52, 44, 36, 30, 24, 18, 12, 7, 3, 0],
+    },
+    weekend: [
+      { day: 'FRI', label: 'PRACTICE', time: '09:00 → 17:00', status: 'upcoming' },
+      { day: 'SAT', label: 'QUALIFYING', time: '14:00', status: 'upcoming' },
+      { day: 'SUN', label: 'FINALS', time: '13:30', status: 'upcoming' },
+    ],
+    previousPodium: {
+      year: 2025,
+      men: [
+        { rider: 'Loïc Bruni',        country: 'FRA', time: '3:54.21' },
+        { rider: 'Finn Iles',         country: 'CAN', time: '+0.28'   },
+        { rider: 'Amaury Pierron',    country: 'FRA', time: '+1.02'   },
+      ],
+      women: [
+        { rider: 'Vali Höll',         country: 'AUT', time: '4:24.18' },
+        { rider: 'Nina Hoffmann',     country: 'GER', time: '+0.94'   },
+        { rider: 'Tahnée Seagrave',   country: 'GBR', time: '+1.62'   },
       ],
     },
   },
@@ -514,7 +609,7 @@ export const eventDetails = {
       ],
     },
   },
-  'uci-r5-lesgets': {
+  'uci-r7-lesgets': {
     track: {
       path: 'M 45 8 C 62 18, 28 30, 56 40 S 30 60, 56 76 L 48 94',
       // Les Gets — fast woodsy with big flow sections and root webs
@@ -642,6 +737,74 @@ export const eventDetails = {
         { rider: 'Phoebe Gale',       country: 'GBR', time: '3:48.06' },
         { rider: 'Erice van Leuven',  country: 'NZL', time: '+0.91'   },
         { rider: 'Lisa Bouladou',     country: 'FRA', time: '+1.74'   },
+      ],
+    },
+  },
+
+  'uci-r8-whistler': {
+    track: {
+      path: 'M 50 8 C 30 18, 60 30, 35 40 Q 65 52, 30 62 T 60 80 L 45 96',
+      // Whistler Mountain Bike Park — iconic Coast Range, fast loamy
+      stats: { length: '2.6 KM', drop: '720 M', maxGradient: '38%', topSpeed: '76 KM/H', surface: 'BIKE PARK · LOAM · COAST RANGE' },
+      checkpoints: [
+        { x: 50, y: 8, label: 'START' },
+        { x: 35, y: 40, label: 'S1' },
+        { x: 30, y: 62, label: 'S2' },
+        { x: 45, y: 96, label: 'FINISH' },
+      ],
+      // Steady descent through bike park trails, big rollers + drops
+      elevation: [100, 94, 86, 78, 70, 62, 54, 46, 38, 30, 22, 14, 8, 3, 0],
+    },
+    weekend: [
+      { day: 'FRI', label: 'PRACTICE', time: '09:00 → 17:00', status: 'upcoming' },
+      { day: 'SAT', label: 'QUALIFYING', time: '14:00', status: 'upcoming' },
+      { day: 'SUN', label: 'FINALS', time: '13:30', status: 'upcoming' },
+    ],
+    previousPodium: {
+      year: 2025,
+      men: [
+        { rider: 'Jackson Goldstone', country: 'CAN', time: '4:02.18' },
+        { rider: 'Finn Iles',         country: 'CAN', time: '+0.34'   },
+        { rider: 'Loïc Bruni',        country: 'FRA', time: '+0.98'   },
+      ],
+      women: [
+        { rider: 'Vali Höll',         country: 'AUT', time: '4:32.04' },
+        { rider: 'Marine Cabirou',    country: 'FRA', time: '+0.62'   },
+        { rider: 'Nina Hoffmann',     country: 'GER', time: '+1.40'   },
+      ],
+    },
+  },
+
+  'uci-r9-lakeplacid': {
+    track: {
+      path: 'M 50 8 L 32 22 L 60 32 Q 32 46, 55 54 T 35 72 L 50 92',
+      // Lake Placid — Adirondacks venue, Olympic-era ski mountain
+      stats: { length: '1.9 KM', drop: '500 M', maxGradient: '36%', topSpeed: '65 KM/H', surface: 'ADIRONDACK · LOAM · ROCK' },
+      checkpoints: [
+        { x: 50, y: 8, label: 'START' },
+        { x: 32, y: 46, label: 'S1' },
+        { x: 35, y: 72, label: 'S2' },
+        { x: 50, y: 92, label: 'FINISH' },
+      ],
+      // Mid-length descent with steady gradient, classic ski piste lower
+      elevation: [100, 92, 84, 76, 68, 60, 52, 44, 36, 28, 22, 16, 10, 4, 0],
+    },
+    weekend: [
+      { day: 'FRI', label: 'PRACTICE', time: '09:00 → 17:00', status: 'upcoming' },
+      { day: 'SAT', label: 'QUALIFYING', time: '14:00', status: 'upcoming' },
+      { day: 'SUN', label: 'FINALS', time: '13:30', status: 'upcoming' },
+    ],
+    previousPodium: {
+      year: 2025,
+      men: [
+        { rider: 'Finn Iles',         country: 'CAN', time: '3:08.42' },
+        { rider: 'Dakotah Norton',    country: 'USA', time: '+0.51'   },
+        { rider: 'Bernard Kerr',      country: 'GBR', time: '+1.18'   },
+      ],
+      women: [
+        { rider: 'Tahnée Seagrave',   country: 'GBR', time: '3:36.20' },
+        { rider: 'Anna Newkirk',      country: 'USA', time: '+1.04'   },
+        { rider: 'Marine Cabirou',    country: 'FRA', time: '+1.82'   },
       ],
     },
   },
