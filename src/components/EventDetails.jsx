@@ -285,8 +285,30 @@ export default function EventDetails({ event, past = false, onClose }) {
           </section>
         )}
 
-        {/* PREVIOUS PODIUM */}
-        {details && (
+        {/* PREVIOUS PODIUM (or DEBUT marker for first-time venues) */}
+        {details && details.debut && (
+          <section className="px-3 pt-5">
+            <div className="mb-2 flex items-end justify-between gap-3">
+              <h2 className="font-display text-[22px] leading-none tracking-tight text-bone">
+                PREV. <span className="text-acid">PODIUM</span>
+              </h2>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-bone/60">
+                NO HISTORY
+              </span>
+            </div>
+            <div className="border-[3px] border-acid bg-ink p-6 text-center">
+              <div className="font-pixel text-[18px] leading-none text-acid">★ DEBUT EVENT</div>
+              <div className="mt-2 font-display text-[18px] leading-tight tracking-tight text-bone">
+                FIRST UCI WORLD CUP HERE
+              </div>
+              <div className="mt-1 font-mono text-[11px] text-bone/70">
+                History writes itself this weekend.
+              </div>
+            </div>
+          </section>
+        )}
+
+        {details && details.previousPodium && (
           <section className="px-3 pt-5">
             <div className="mb-2 flex items-end justify-between gap-3">
               <h2 className="font-display text-[22px] leading-none tracking-tight text-bone">

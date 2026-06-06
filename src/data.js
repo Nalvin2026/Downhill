@@ -454,16 +454,16 @@ export const eventDetails = {
       { day: 'SUN', label: 'FINALS', time: '13:30', status: 'done' },
     ],
     previousPodium: {
-      year: 2025,
+      year: 2026,
       men: [
-        { rider: 'Jackson Goldstone', country: 'CAN', time: '3:18.42' },
-        { rider: 'Loïc Bruni',        country: 'FRA', time: '+0.31'   },
-        { rider: 'Finn Iles',         country: 'CAN', time: '+0.94'   },
+        { rider: 'Asa Vermette',      country: 'USA', time: '2:43.301' },
+        { rider: 'Loïc Bruni',        country: 'FRA', time: '+1.568'   },
+        { rider: 'Amaury Pierron',    country: 'FRA', time: '+2.063'   },
       ],
       women: [
-        { rider: 'Vali Höll',         country: 'AUT', time: '3:48.20' },
-        { rider: 'Marine Cabirou',    country: 'FRA', time: '+0.72'   },
-        { rider: 'Tahnée Seagrave',   country: 'GBR', time: '+1.54'   },
+        { rider: 'Valentina Höll',    country: 'AUT', time: '3:14.778' },
+        { rider: 'Gloria Scarsi',     country: 'ITA', time: '+0.573'   },
+        { rider: 'Myriam Nicole',     country: 'FRA', time: '+1.751'   },
       ],
     },
   },
@@ -519,16 +519,16 @@ export const eventDetails = {
       { day: 'SUN', label: 'FINALS', time: '13:30', status: 'done' },
     ],
     previousPodium: {
-      year: 2025,
+      year: 2026,
       men: [
-        { rider: 'Loïc Bruni',        country: 'FRA', time: '3:18.71' },
-        { rider: 'Loris Vergier',     country: 'FRA', time: '+0.18'   },
-        { rider: 'Amaury Pierron',    country: 'FRA', time: '+0.94'   },
+        { rider: 'Luca Shaw',         country: 'USA', time: '3:27.637' },
+        { rider: 'Benoit Coulanges',  country: 'FRA', time: '+0.127'   },
+        { rider: 'Jordan Williams',   country: 'GBR', time: '+0.611'   },
       ],
       women: [
-        { rider: 'Myriam Nicole',     country: 'FRA', time: '3:46.20' },
-        { rider: 'Tahnée Seagrave',   country: 'GBR', time: '+0.71'   },
-        { rider: 'Vali Höll',         country: 'AUT', time: '+1.04'   },
+        { rider: 'Valentina Höll',    country: 'AUT', time: '3:51.920' },
+        { rider: 'Gracey Hemstreet',  country: 'CAN', time: '+3.257'   },
+        { rider: 'Lisa Baumann',      country: 'SUI', time: '+4.302'   },
       ],
     },
   },
@@ -586,14 +586,14 @@ export const eventDetails = {
     previousPodium: {
       year: 2025,
       men: [
-        { rider: 'Finn Iles',         country: 'CAN', time: '2:51.04' },
-        { rider: 'Andreas Kolb',      country: 'AUT', time: '+0.32'   },
-        { rider: 'Loïc Bruni',        country: 'FRA', time: '+0.74'   },
+        { rider: 'Jackson Goldstone', country: 'CAN', time: '2:57.229' },
+        { rider: 'Loïc Bruni',        country: 'FRA', time: '+0.059'   },
+        { rider: 'Henri Kiefer',      country: 'GER', time: '+0.535'   },
       ],
       women: [
-        { rider: 'Vali Höll',         country: 'AUT', time: '3:22.16' },
-        { rider: 'Tahnée Seagrave',   country: 'GBR', time: '+0.40'   },
-        { rider: 'Nina Hoffmann',     country: 'GER', time: '+1.08'   },
+        { rider: 'Gracey Hemstreet',  country: 'CAN', time: '3:21.962' },
+        { rider: 'Anna Newkirk',      country: 'USA', time: '+0.865'   },
+        { rider: 'Valentina Höll',    country: 'AUT', time: '+2.427'   },
       ],
     },
   },
@@ -651,14 +651,14 @@ export const eventDetails = {
     previousPodium: {
       year: 2025,
       men: [
-        { rider: 'Loris Vergier',     country: 'FRA', time: '3:42.18' },
-        { rider: 'Jackson Goldstone', country: 'CAN', time: '+0.42'   },
-        { rider: 'Andreas Kolb',      country: 'AUT', time: '+1.08'   },
+        { rider: 'Amaury Pierron',    country: 'FRA', time: '2:44.699' },
+        { rider: 'Henri Kiefer',      country: 'GER', time: '+0.407'   },
+        { rider: 'Lachlan Stevens-McNab', country: 'NZL', time: '+0.814' },
       ],
       women: [
-        { rider: 'Vali Höll',         country: 'AUT', time: '4:11.62' },
-        { rider: 'Camille Balanche',  country: 'SUI', time: '+0.71'   },
-        { rider: 'Marine Cabirou',    country: 'FRA', time: '+1.34'   },
+        { rider: 'Tahnée Seagrave',   country: 'GBR', time: '3:11.579' },
+        { rider: 'Nina Hoffmann',     country: 'GER', time: '+0.061'   },
+        { rider: 'Valentina Höll',    country: 'AUT', time: '+0.815'   },
       ],
     },
   },
@@ -685,14 +685,14 @@ export const eventDetails = {
     previousPodium: {
       year: 2025,
       men: [
-        { rider: 'Loïc Bruni',        country: 'FRA', time: '3:54.21' },
-        { rider: 'Finn Iles',         country: 'CAN', time: '+0.28'   },
-        { rider: 'Amaury Pierron',    country: 'FRA', time: '+1.02'   },
+        { rider: 'Jackson Goldstone', country: 'CAN', time: '3:27.134' },
+        { rider: 'Loris Vergier',     country: 'FRA', time: '+0.604'   },
+        { rider: 'Loïc Bruni',        country: 'FRA', time: '+1.039'   },
       ],
       women: [
-        { rider: 'Vali Höll',         country: 'AUT', time: '4:24.18' },
-        { rider: 'Nina Hoffmann',     country: 'GER', time: '+0.94'   },
-        { rider: 'Tahnée Seagrave',   country: 'GBR', time: '+1.62'   },
+        { rider: 'Nina Hoffmann',     country: 'GER', time: '3:57.934' },
+        { rider: 'Valentina Höll',    country: 'AUT', time: '+2.994'   },
+        { rider: 'Gracey Hemstreet',  country: 'CAN', time: '+3.196'   },
       ],
     },
   },
@@ -750,14 +750,14 @@ export const eventDetails = {
     previousPodium: {
       year: 2025,
       men: [
-        { rider: 'Amaury Pierron',    country: 'FRA', time: '3:08.62' },
-        { rider: 'Loris Vergier',     country: 'FRA', time: '+0.34'   },
-        { rider: 'Troy Brosnan',      country: 'AUS', time: '+0.91'   },
+        { rider: 'Ronan Dunne',       country: 'IRL', time: '3:56.586' },
+        { rider: 'Martin Maes',       country: 'BEL', time: '+2.821'   },
+        { rider: 'Andreas Kolb',      country: 'AUT', time: '+2.931'   },
       ],
       women: [
-        { rider: 'Vali Höll',         country: 'AUT', time: '3:42.10' },
-        { rider: 'Myriam Nicole',     country: 'FRA', time: '+0.42'   },
-        { rider: 'Tahnée Seagrave',   country: 'GBR', time: '+1.20'   },
+        { rider: 'Gracey Hemstreet',  country: 'CAN', time: '4:55.517' },
+        { rider: 'Marine Cabirou',    country: 'FRA', time: '+1.072'   },
+        { rider: 'Valentina Höll',    country: 'AUT', time: '+2.741'   },
       ],
     },
   },
@@ -783,14 +783,14 @@ export const eventDetails = {
     previousPodium: {
       year: 2025,
       men: [
-        { rider: 'Finn Iles',         country: 'CAN', time: '3:17.84' },
-        { rider: 'Jackson Goldstone', country: 'CAN', time: '+0.62'   },
-        { rider: 'Charlie Hatton',    country: 'GBR', time: '+1.31'   },
+        { rider: 'Loïc Bruni',        country: 'FRA', time: '2:34.367' },
+        { rider: 'Jackson Goldstone', country: 'CAN', time: '+1.279'   },
+        { rider: 'Loris Vergier',     country: 'FRA', time: '+2.167'   },
       ],
       women: [
-        { rider: 'Nina Hoffmann',     country: 'GER', time: '3:51.40' },
-        { rider: 'Marine Cabirou',    country: 'FRA', time: '+0.84'   },
-        { rider: 'Monika Hrastnik',   country: 'SLO', time: '+2.12'   },
+        { rider: 'Tahnée Seagrave',   country: 'GBR', time: '2:56.835' },
+        { rider: 'Valentina Höll',    country: 'AUT', time: '+1.816'   },
+        { rider: 'Mille Johnset',     country: 'NOR', time: '+1.990'   },
       ],
     },
   },
@@ -814,16 +814,17 @@ export const eventDetails = {
       { day: 'SUN', label: 'FINALS', time: '14:00', status: 'upcoming' },
     ],
     previousPodium: {
+      // 2025 Val di Sole WC round (same trail). The 2025 Worlds were at Champéry.
       year: 2025,
       men: [
-        { rider: 'Loïc Bruni',        country: 'FRA', time: '3:00.62' },
-        { rider: 'Loris Vergier',     country: 'FRA', time: '+0.20'   },
-        { rider: 'Andreas Kolb',      country: 'AUT', time: '+0.71'   },
+        { rider: 'Jackson Goldstone', country: 'CAN', time: '3:38.860' },
+        { rider: 'Troy Brosnan',      country: 'AUS', time: '+2.422'   },
+        { rider: 'Thibaut Daprela',   country: 'FRA', time: '+2.881'   },
       ],
       women: [
-        { rider: 'Vali Höll',         country: 'AUT', time: '3:30.18' },
-        { rider: 'Marine Cabirou',    country: 'FRA', time: '+0.58'   },
-        { rider: 'Tahnée Seagrave',   country: 'GBR', time: '+1.14'   },
+        { rider: 'Marine Cabirou',    country: 'FRA', time: '3:47.580' },
+        { rider: 'Valentina Höll',    country: 'AUT', time: '+1.062'   },
+        { rider: 'Gracey Hemstreet',  country: 'CAN', time: '+2.418'   },
       ],
     },
   },
@@ -879,19 +880,7 @@ export const eventDetails = {
       { day: 'SAT', label: 'QUALIFYING', time: '14:00', status: 'upcoming' },
       { day: 'SUN', label: 'FINALS', time: '13:30', status: 'upcoming' },
     ],
-    previousPodium: {
-      year: 2025,
-      men: [
-        { rider: 'Jackson Goldstone', country: 'CAN', time: '4:02.18' },
-        { rider: 'Finn Iles',         country: 'CAN', time: '+0.34'   },
-        { rider: 'Loïc Bruni',        country: 'FRA', time: '+0.98'   },
-      ],
-      women: [
-        { rider: 'Vali Höll',         country: 'AUT', time: '4:32.04' },
-        { rider: 'Marine Cabirou',    country: 'FRA', time: '+0.62'   },
-        { rider: 'Nina Hoffmann',     country: 'GER', time: '+1.40'   },
-      ],
-    },
+    debut: true,
   },
 
   'uci-r9-lakeplacid': {
@@ -913,19 +902,7 @@ export const eventDetails = {
       { day: 'SAT', label: 'QUALIFYING', time: '14:00', status: 'upcoming' },
       { day: 'SUN', label: 'FINALS', time: '13:30', status: 'upcoming' },
     ],
-    previousPodium: {
-      year: 2025,
-      men: [
-        { rider: 'Finn Iles',         country: 'CAN', time: '3:08.42' },
-        { rider: 'Dakotah Norton',    country: 'USA', time: '+0.51'   },
-        { rider: 'Bernard Kerr',      country: 'GBR', time: '+1.18'   },
-      ],
-      women: [
-        { rider: 'Tahnée Seagrave',   country: 'GBR', time: '3:36.20' },
-        { rider: 'Anna Newkirk',      country: 'USA', time: '+1.04'   },
-        { rider: 'Marine Cabirou',    country: 'FRA', time: '+1.82'   },
-      ],
-    },
+    debut: true,
   },
 }
 
