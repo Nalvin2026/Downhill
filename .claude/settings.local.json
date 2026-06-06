@@ -9,7 +9,12 @@
       "Bash(npm install *)",
       "Bash(node scripts/build-icons.mjs)",
       "Bash(npm run *)",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:www.rootsandrain.com)",
+      "WebSearch",
+      "WebFetch(domain:www.ucimtbworldseries.com)",
+      "WebFetch(domain:ucimtbworldseries.com)",
+      "WebFetch(domain:www.pinkbike.com)"
     ]
   }
 }
