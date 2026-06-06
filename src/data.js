@@ -21,6 +21,7 @@ export const COUNTRY_NAMES = {
   NOR: 'Norway',
   NZL: 'New Zealand',
   POL: 'Poland',
+  POR: 'Portugal',
   RSA: 'South Africa',
   SLO: 'Slovenia',
   SUI: 'Switzerland',
@@ -41,10 +42,24 @@ export const SERIES = {
   },
 }
 
-// 2026 calendar — real UCI DHI World Cup rounds + iXS rounds.
-// UCI calendar matches uci.org / Mountain Bike World Series 2026.
+// 2026 calendar — real-world UCI DHI World Cup and iXS DH Cup / European Cup / IRC.
+// UCI matches uci.org Mountain Bike World Series 2026.
+// iXS matches downhill-cup.com 2026 schedule.
 export const events = [
-  // ── UCI ROUND 1 — KOREA ──
+  // ── iXS EDC #1 — SANTIAGO DE BESTEIROS (PT) ──
+  {
+    id: 'ixs-edc-r1-santiago',
+    series: 'IXS',
+    tier: 'EUROPEAN CUP',
+    round: 1,
+    venue: 'SANTIAGO DE BESTEIROS',
+    country: 'POR',
+    region: 'CENTRO',
+    start: '2026-04-10',
+    end: '2026-04-12',
+  },
+
+  // ── UCI ROUND 1 — MONA YONGPYONG ──
   {
     id: 'uci-r1-yongpyong',
     series: 'UCI',
@@ -57,20 +72,33 @@ export const events = [
     end: '2026-05-03',
   },
 
-  // ── iXS R1 — MARIBOR ──
+  // ── iXS DHC #1 — KOUTY NAD DESNOU (CZ) ──
   {
-    id: 'ixs-eu-r1-maribor',
+    id: 'ixs-dhc-r1-kouty',
     series: 'IXS',
-    tier: 'EUROPEAN CUP',
+    tier: 'DH CUP',
     round: 1,
-    venue: 'MARIBOR',
-    country: 'SLO',
-    region: 'POHORJE',
-    start: '2026-05-09',
-    end: '2026-05-10',
+    venue: 'KOUTY NAD DESNOU',
+    country: 'CZE',
+    region: 'JESENÍKY',
+    start: '2026-05-01',
+    end: '2026-05-03',
   },
 
-  // ── UCI ROUND 2 — LOUDENVIELLE-PEYRAGUDES ──
+  // ── iXS EDC #2 — FORT WILLIAM (GB) ──
+  {
+    id: 'ixs-edc-r2-fortwilliam',
+    series: 'IXS',
+    tier: 'EUROPEAN CUP',
+    round: 2,
+    venue: 'FORT WILLIAM',
+    country: 'GBR',
+    region: 'NEVIS RANGE',
+    start: '2026-05-15',
+    end: '2026-05-17',
+  },
+
+  // ── UCI ROUND 2 — LOUDENVIELLE—PEYRAGUDES ──
   {
     id: 'uci-r2-loudenvielle',
     series: 'UCI',
@@ -83,20 +111,33 @@ export const events = [
     end: '2026-05-31',
   },
 
-  // ── iXS R2 — LA MOLINA ──
+  // ── iXS DHC #2 — WILLINGEN (DE) ──
   {
-    id: 'ixs-eu-r2-lamolina',
+    id: 'ixs-dhc-r2-willingen',
+    series: 'IXS',
+    tier: 'DH CUP',
+    round: 2,
+    venue: 'WILLINGEN',
+    country: 'GER',
+    region: 'SAUERLAND',
+    start: '2026-05-29',
+    end: '2026-05-31',
+  },
+
+  // ── iXS EDC #3 — LA MOLINA (ES) ──
+  {
+    id: 'ixs-edc-r3-lamolina',
     series: 'IXS',
     tier: 'EUROPEAN CUP',
-    round: 2,
+    round: 3,
     venue: 'LA MOLINA',
     country: 'ESP',
     region: 'PYRENEES',
-    start: '2026-06-06',
+    start: '2026-06-05',
     end: '2026-06-07',
   },
 
-  // ── UCI ROUND 3 — SAALFELDEN-LEOGANG ──
+  // ── UCI ROUND 3 — SAALFELDEN—LEOGANG ──
   {
     id: 'uci-r3-leogang',
     series: 'UCI',
@@ -109,9 +150,9 @@ export const events = [
     end: '2026-06-14',
   },
 
-  // ── iXS R3 — SEMMERING (overlaps with Lenzerheide; iXS regional) ──
+  // ── iXS DHC #3 — SEMMERING ──
   {
-    id: 'ixs-r3-semmering',
+    id: 'ixs-dhc-r3-semmering',
     series: 'IXS',
     tier: 'DH CUP',
     round: 3,
@@ -135,6 +176,19 @@ export const events = [
     end: '2026-06-21',
   },
 
+  // ── iXS DHC #4 — ŠPIČÁK ──
+  {
+    id: 'ixs-dhc-r4-spicak',
+    series: 'IXS',
+    tier: 'DH CUP',
+    round: 4,
+    venue: 'ŠPIČÁK',
+    country: 'CZE',
+    region: 'BOHEMIAN F.',
+    start: '2026-07-03',
+    end: '2026-07-05',
+  },
+
   // ── UCI ROUND 5 — LA THUILE ──
   {
     id: 'uci-r5-lathuile',
@@ -146,6 +200,19 @@ export const events = [
     region: 'AOSTA VALLEY',
     start: '2026-07-03',
     end: '2026-07-05',
+  },
+
+  // ── iXS EDC #4 — LES ORRES ──
+  {
+    id: 'ixs-edc-r4-lesorres',
+    series: 'IXS',
+    tier: 'EUROPEAN CUP',
+    round: 4,
+    venue: 'LES ORRES',
+    country: 'FRA',
+    region: 'HAUTES-ALPES',
+    start: '2026-07-10',
+    end: '2026-07-12',
   },
 
   // ── UCI ROUND 6 — PAL ARINSAL ──
@@ -161,17 +228,17 @@ export const events = [
     end: '2026-07-12',
   },
 
-  // ── iXS R4 — ŠPIČÁK ──
+  // ── iXS EDC #5 — SZCZYRK ──
   {
-    id: 'ixs-eu-r3-spicak',
+    id: 'ixs-edc-r5-szczyrk',
     series: 'IXS',
     tier: 'EUROPEAN CUP',
-    round: 3,
-    venue: 'ŠPIČÁK',
-    country: 'CZE',
-    region: 'BOHEMIAN F.',
-    start: '2026-07-18',
-    end: '2026-07-19',
+    round: 5,
+    venue: 'SZCZYRK',
+    country: 'POL',
+    region: 'BESKIDY',
+    start: '2026-07-31',
+    end: '2026-08-02',
   },
 
   // ── UCI ROUND 7 — LES GETS ──
@@ -200,17 +267,43 @@ export const events = [
     end: '2026-08-30',
   },
 
-  // ── iXS R5 — SCHLADMING ──
+  // ── iXS DHC #5 — ILMENAU ──
   {
-    id: 'ixs-r5-schladming',
+    id: 'ixs-dhc-r5-ilmenau',
     series: 'IXS',
     tier: 'DH CUP',
     round: 5,
-    venue: 'SCHLADMING',
+    venue: 'ILMENAU',
+    country: 'GER',
+    region: 'THURINGIA',
+    start: '2026-08-28',
+    end: '2026-08-30',
+  },
+
+  // ── iXS EDC #6 — VERBIER ──
+  {
+    id: 'ixs-edc-r6-verbier',
+    series: 'IXS',
+    tier: 'EUROPEAN CUP',
+    round: 6,
+    venue: 'VERBIER',
+    country: 'SUI',
+    region: 'VALAIS',
+    start: '2026-09-11',
+    end: '2026-09-13',
+  },
+
+  // ── iXS IRC — SCHLADMING—DACHSTEIN (Rookies Championship) ──
+  {
+    id: 'ixs-irc-schladming',
+    series: 'IXS',
+    tier: 'ROOKIES CUP',
+    round: 'IRC',
+    venue: 'SCHLADMING—DACHSTEIN',
     country: 'AUT',
     region: 'ENNSTAL',
-    start: '2026-09-04',
-    end: '2026-09-06',
+    start: '2026-09-18',
+    end: '2026-09-20',
   },
 
   // ── UCI ROUND 8 — WHISTLER ──
@@ -226,6 +319,19 @@ export const events = [
     end: '2026-09-27',
   },
 
+  // ── iXS EDC #7 — MARIBOR ──
+  {
+    id: 'ixs-edc-r7-maribor',
+    series: 'IXS',
+    tier: 'EUROPEAN CUP',
+    round: 7,
+    venue: 'MARIBOR',
+    country: 'SLO',
+    region: 'POHORJE',
+    start: '2026-09-25',
+    end: '2026-09-27',
+  },
+
   // ── UCI ROUND 9 — LAKE PLACID ──
   {
     id: 'uci-r9-lakeplacid',
@@ -235,6 +341,19 @@ export const events = [
     venue: 'LAKE PLACID',
     country: 'USA',
     region: 'ADIRONDACKS',
+    start: '2026-10-02',
+    end: '2026-10-04',
+  },
+
+  // ── iXS DHC #6 — BELLWALD ──
+  {
+    id: 'ixs-dhc-r6-bellwald',
+    series: 'IXS',
+    tier: 'DH CUP',
+    round: 6,
+    venue: 'BELLWALD',
+    country: 'SUI',
+    region: 'OBERWALLIS',
     start: '2026-10-02',
     end: '2026-10-04',
   },
@@ -348,7 +467,7 @@ export const eventDetails = {
       ],
     },
   },
-  'ixs-eu-r1-maribor': {
+  'ixs-edc-r7-maribor': {
     track: {
       path: 'M 45 8 L 25 20 Q 55 32, 30 46 T 60 70 L 50 92',
       // Pohorje — long, steep, loamy. Notoriously one of the toughest WC tracks
@@ -413,7 +532,7 @@ export const eventDetails = {
       ],
     },
   },
-  'ixs-eu-r2-lamolina': {
+  'ixs-edc-r3-lamolina': {
     track: {
       path: 'M 50 8 L 28 20 L 62 30 L 30 46 L 65 60 L 32 74 L 68 86 L 50 96',
       // La Molina bike park — switchback laden, mixed surface
@@ -478,7 +597,7 @@ export const eventDetails = {
       ],
     },
   },
-  'ixs-r3-semmering': {
+  'ixs-dhc-r3-semmering': {
     track: {
       path: 'M 55 8 C 25 20, 55 34, 30 46 S 60 64, 40 80 L 50 92',
       // Semmering — short, sharp, very rooty
@@ -577,7 +696,7 @@ export const eventDetails = {
       ],
     },
   },
-  'ixs-eu-r3-spicak': {
+  'ixs-dhc-r4-spicak': {
     track: {
       path: 'M 42 8 L 66 18 L 35 30 L 70 42 L 30 55 L 65 70 L 38 88',
       // Špičák — short, rocky tech in spruce forest
@@ -708,7 +827,7 @@ export const eventDetails = {
       ],
     },
   },
-  'ixs-r5-schladming': {
+  'ixs-irc-schladming': {
     track: {
       path: 'M 50 8 L 30 22 C 60 35, 28 50, 55 64 S 35 80, 55 94',
       // Schladming Planai — long, mixed surface, slalom course adjacency
