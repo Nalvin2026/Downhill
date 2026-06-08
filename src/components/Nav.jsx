@@ -50,7 +50,7 @@ export default function Nav({ view, setView }) {
   const tabs = [
     { id: 'schedule', label: 'SCHEDULE', Glyph: ScheduleGlyph },
     { id: 'rankings', label: 'RANKINGS', Glyph: RankingsGlyph },
-    { id: 'live',     label: 'LIVE',     Glyph: LiveGlyph,     comingSoon: true },
+    { id: 'live',     label: 'LIVE',     Glyph: LiveGlyph },
   ]
 
   return (

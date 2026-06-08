@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Nav from './components/Nav'
 import Schedule from './views/Schedule'
 import Rankings from './views/Rankings'
+import Live from './views/Live'
 import EventDetails from './components/EventDetails'
 import RiderDetails from './components/RiderDetails'
 import SplashScreen from './components/SplashScreen'
@@ -41,27 +42,42 @@ export default function App() {
     return { upcomingCount: upcoming, archivedCount: archived }
   }, [])
 
-  const headerProps = view === 'schedule'
-    ? {
-        preTitle: 'SEASON 2026',
-        title: <>FULL <span className="text-acid">CALENDAR</span></>,
-        meta: (
-          <>
-            <div>{upcomingCount} UPCOMING</div>
-            <div>{archivedCount} ARCHIVED</div>
-          </>
-        ),
-      }
-    : {
-        preTitle: 'SEASON STANDINGS',
-        title: <>THE <span className="text-acid">LEADERBOARD</span></>,
-        meta: (
-          <>
-            <div>{standings[series].label}</div>
-            <div>{standings[series].progress}</div>
-          </>
-        ),
-      }
+  let headerProps
+  if (view === 'schedule') {
+    headerProps = {
+      preTitle: 'SEASON 2026',
+      title: <>FULL <span className="text-acid">CALENDAR</span></>,
+      meta: (
+        <>
+          <div>{upcomingCount} UPCOMING</div>
+          <div>{archivedCount} ARCHIVED</div>
+        </>
+      ),
+    }
+  } else if (view === 'rankings') {
+    headerProps = {
+      preTitle: 'SEASON STANDINGS',
+      title: <>THE <span className="text-acid">LEADERBOARD</span></>,
+      meta: (
+        <>
+          <div>{standings[series].label}</div>
+          <div>{standings[series].progress}</div>
+        </>
+      ),
+    }
+  } else {
+    // live
+    headerProps = {
+      preTitle: 'LIVE / 2026',
+      title: <>RACE <span className="text-acid">FEED</span></>,
+      meta: (
+        <>
+          <div>ROUND 03</div>
+          <div>LEOGANG · AUT</div>
+        </>
+      ),
+    }
+  }
 
   // Splash screen lifecycle: showing → exiting (fade) → gone (unmount).
   const [splash, setSplash] = useState('showing')
@@ -104,6 +120,11 @@ export default function App() {
               series={series}
               setSeries={setSeries}
             />
+          </div>
+        </ViewSlot>
+        <ViewSlot active={view === 'live'}>
+          <div className="pb-10">
+            <Live />
           </div>
         </ViewSlot>
       </main>
