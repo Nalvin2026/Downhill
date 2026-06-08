@@ -1,10 +1,11 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Header from './components/Header'
 import Nav from './components/Nav'
 import Schedule from './views/Schedule'
 import Rankings from './views/Rankings'
 import EventDetails from './components/EventDetails'
 import RiderDetails from './components/RiderDetails'
+import SplashScreen from './components/SplashScreen'
 import { TODAY } from './data'
 
 // Each view stays mounted in its own scroll container so switching
@@ -26,6 +27,17 @@ export default function App() {
   const [view, setView] = useState('schedule')
   const [selectedEvent, setSelectedEvent] = useState(null)
   const [selectedRider, setSelectedRider] = useState(null)
+
+  // Splash screen lifecycle: showing → exiting (fade) → gone (unmount).
+  const [splash, setSplash] = useState('showing')
+  useEffect(() => {
+    const exit = setTimeout(() => setSplash('exiting'), 1900)
+    const gone = setTimeout(() => setSplash('gone'), 2300)
+    return () => {
+      clearTimeout(exit)
+      clearTimeout(gone)
+    }
+  }, [])
 
   const selectedIsPast = useMemo(() => {
     if (!selectedEvent) return false
@@ -78,6 +90,9 @@ export default function App() {
           onClose={() => setSelectedRider(null)}
         />
       )}
+
+      {/* Splash screen — covers the whole frame on first launch, auto-dismisses */}
+      {splash !== 'gone' && <SplashScreen exiting={splash === 'exiting'} />}
     </div>
   )
 }

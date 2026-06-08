@@ -105,3 +105,23 @@ body {
 
 /* No autofill chrome */
 input:-webkit-autofill { -webkit-box-shadow: 0 0 0 30px #0A0A0A inset; -webkit-text-fill-color: #EDE9D8; }
+
+/* ── Splash screen animations ── */
+@keyframes splash-fill {
+  0%   { width: 0%; }
+  100% { width: 100%; }
+}
+.splash-fill {
+  width: 0%;
+  animation: splash-fill 1.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes splash-fade-in {
+  0%   { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.splash-fade-in {
+  opacity: 0;
+  animation: splash-fade-in 0.4s ease-out forwards;
+}
+
