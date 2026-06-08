@@ -42,7 +42,7 @@ export default function App() {
     >
       <DesktopFrame />
 
-      <Header showMarquee={view === 'schedule'} />
+      <Header showMarquee={false} />
 
       <main className="relative min-h-0 flex-1 overflow-hidden">
         <ViewSlot active={view === 'schedule'}>
