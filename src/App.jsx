@@ -6,7 +6,7 @@ import Rankings from './views/Rankings'
 import EventDetails from './components/EventDetails'
 import RiderDetails from './components/RiderDetails'
 import SplashScreen from './components/SplashScreen'
-import { TODAY } from './data'
+import { TODAY, events, standings } from './data'
 
 // Each view stays mounted in its own scroll container so switching
 // preserves its scroll position. Hidden views use display:none so they
@@ -27,6 +27,41 @@ export default function App() {
   const [view, setView] = useState('schedule')
   const [selectedEvent, setSelectedEvent] = useState(null)
   const [selectedRider, setSelectedRider] = useState(null)
+  // Lifted from Rankings so the header can show the right series meta.
+  const [series, setSeries] = useState('UCI')
+
+  // Header bits are derived from the current view + data.
+  const { upcomingCount, archivedCount } = useMemo(() => {
+    let upcoming = 0
+    let archived = 0
+    for (const e of events) {
+      if (new Date(e.end) >= TODAY) upcoming++
+      else archived++
+    }
+    return { upcomingCount: upcoming, archivedCount: archived }
+  }, [])
+
+  const headerProps = view === 'schedule'
+    ? {
+        preTitle: 'SEASON 2026',
+        title: <>FULL <span className="text-acid">CALENDAR</span></>,
+        meta: (
+          <>
+            <div>{upcomingCount} UPCOMING</div>
+            <div>{archivedCount} ARCHIVED</div>
+          </>
+        ),
+      }
+    : {
+        preTitle: 'SEASON STANDINGS',
+        title: <>THE <span className="text-acid">LEADERBOARD</span></>,
+        meta: (
+          <>
+            <div>{standings[series].label}</div>
+            <div>{standings[series].progress}</div>
+          </>
+        ),
+      }
 
   // Splash screen lifecycle: showing → exiting (fade) → gone (unmount).
   const [splash, setSplash] = useState('showing')
@@ -54,7 +89,7 @@ export default function App() {
     >
       <DesktopFrame />
 
-      <Header showMarquee={false} />
+      <Header {...headerProps} />
 
       <main className="relative min-h-0 flex-1 overflow-hidden">
         <ViewSlot active={view === 'schedule'}>
@@ -64,7 +99,11 @@ export default function App() {
         </ViewSlot>
         <ViewSlot active={view === 'rankings'}>
           <div className="pb-10">
-            <Rankings onOpenRider={setSelectedRider} />
+            <Rankings
+              onOpenRider={setSelectedRider}
+              series={series}
+              setSeries={setSeries}
+            />
           </div>
         </ViewSlot>
       </main>

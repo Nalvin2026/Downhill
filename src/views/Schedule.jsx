@@ -88,20 +88,6 @@ export default function Schedule({ onOpenEvent }) {
 
   return (
     <section className="px-4 pt-4">
-      {/* SEASON META */}
-      <div className="mb-4">
-        <div className="flex items-start justify-between gap-3">
-          <div className="font-pixel text-[16px] leading-none text-acid">SEASON 2026</div>
-          <div className="text-right font-mono text-[10px] uppercase leading-tight text-bone/60">
-            <div>{upcoming.length} UPCOMING</div>
-            <div>{past.length} ARCHIVED</div>
-          </div>
-        </div>
-        <h2 className="mt-1 font-display text-[34px] leading-[0.85] tracking-[-0.03em] text-bone">
-          FULL <span className="text-acid">CALENDAR</span>
-        </h2>
-      </div>
-
       <div className="mb-3">
         <Toggle tab={tab} setTab={setTab} />
       </div>

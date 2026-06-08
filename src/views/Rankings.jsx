@@ -152,8 +152,7 @@ function HeroBlock({ leader, gender, leaderPoints, onClick }) {
   )
 }
 
-export default function Rankings({ onOpenRider }) {
-  const [series, setSeries] = useState('UCI')
+export default function Rankings({ onOpenRider, series, setSeries }) {
   const [gender, setGender] = useState('men')
   const meta = standings[series]
   const list = meta[gender]
@@ -165,21 +164,6 @@ export default function Rankings({ onOpenRider }) {
 
   return (
     <section className="px-4 pt-4">
-      <div className="mb-4">
-        <div className="flex items-start justify-between gap-3">
-          <div className="font-pixel text-[16px] leading-none text-acid">
-            SEASON STANDINGS
-          </div>
-          <div className="text-right font-mono text-[10px] uppercase leading-tight text-bone/60">
-            <div>{meta.label}</div>
-            <div>{meta.progress}</div>
-          </div>
-        </div>
-        <h2 className="mt-1 font-display text-[34px] leading-[0.85] tracking-[-0.03em] text-bone">
-          THE <span className="text-acid">LEADERBOARD</span>
-        </h2>
-      </div>
-
       <div className="mb-3">
         <GenderTabs value={gender} onChange={setGender} />
       </div>
