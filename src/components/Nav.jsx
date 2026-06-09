@@ -58,46 +58,56 @@ export default function Nav({ view, setView }) {
       className="relative z-40 border-t-[3px] border-bone/90 bg-ink"
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
-      <div className="grid grid-cols-3">
+      {/* Flex layout with explicit divider bars between tabs.
+          Each tab is flex-1 so all three are exactly equal width regardless
+          of the dividers — fixes the previous box-sizing imbalance where the
+          last tab visually appeared wider than the others. */}
+      <div className="flex items-stretch">
         {tabs.map((t, i) => {
           const active = view === t.id
           const disabled = !!t.comingSoon
           return (
-            <button
-              key={t.id}
-              type="button"
-              onClick={() => !disabled && setView(t.id)}
-              aria-pressed={active}
-              aria-label={t.label}
-              disabled={disabled}
-              className={[
-                'relative flex flex-col items-center justify-center gap-1 py-2.5 transition-colors',
-                i < tabs.length - 1 ? 'border-r-[3px] border-bone/90' : '',
-                active
-                  ? 'bg-acid text-ink'
-                  : 'bg-ink text-bone hover:bg-ash',
-                disabled ? 'cursor-not-allowed opacity-55' : '',
-              ].join(' ')}
-            >
-              <t.Glyph active={active} />
-              <span className="font-display text-[11px] leading-none tracking-tight">
-                {t.label}
-              </span>
-
-              {/* SOON badge for unbuilt tabs */}
-              {disabled && (
-                <span className="absolute right-1.5 top-1.5 border-[1.5px] border-bone/60 bg-ink px-1 py-[1px] font-mono text-[8px] uppercase tracking-widest text-bone/70">
-                  SOON
-                </span>
+            <React.Fragment key={t.id}>
+              {i > 0 && (
+                <div
+                  aria-hidden
+                  className="w-[3px] shrink-0 self-stretch bg-bone/90"
+                />
               )}
-
-              {/* Active state marker */}
-              {active && !disabled && (
-                <span className="absolute right-1.5 top-1.5 font-pixel text-[12px] leading-none text-ink/80">
-                  ◼
+              <button
+                type="button"
+                onClick={() => !disabled && setView(t.id)}
+                aria-pressed={active}
+                aria-label={t.label}
+                disabled={disabled}
+                className={[
+                  'relative flex flex-1 basis-0 flex-col items-center justify-center gap-1 py-2.5 transition-colors',
+                  active
+                    ? 'bg-acid text-ink'
+                    : 'bg-ink text-bone hover:bg-ash',
+                  disabled ? 'cursor-not-allowed opacity-55' : '',
+                ].join(' ')}
+              >
+                <t.Glyph active={active} />
+                <span className="font-display text-[11px] leading-none tracking-tight">
+                  {t.label}
                 </span>
-              )}
-            </button>
+
+                {/* SOON badge for unbuilt tabs */}
+                {disabled && (
+                  <span className="absolute right-1.5 top-1.5 border-[1.5px] border-bone/60 bg-ink px-1 py-[1px] font-mono text-[8px] uppercase tracking-widest text-bone/70">
+                    SOON
+                  </span>
+                )}
+
+                {/* Active state marker */}
+                {active && !disabled && (
+                  <span className="absolute right-1.5 top-1.5 font-pixel text-[12px] leading-none text-ink/80">
+                    ◼
+                  </span>
+                )}
+              </button>
+            </React.Fragment>
           )
         })}
       </div>
