@@ -37,7 +37,12 @@
       "Bash(curl -sS -X POST -H \"Content-Type: image/png\" --data-binary @/tmp/flow-rankings.png \"https://mcp.figma.com/mcp/upload/360d245d-78cd-4467-910a-4568ca2de7f4/submit?scaleMode=FILL\")",
       "Bash(curl -sS -X POST -H \"Content-Type: image/png\" --data-binary @/tmp/flow-live.png \"https://mcp.figma.com/mcp/upload/0f0604c3-238c-4b20-b173-d208d489dbba/submit?scaleMode=FILL\")",
       "Bash(curl -sS -X POST -H \"Content-Type: image/png\" --data-binary @/tmp/flow-event-details.png \"https://mcp.figma.com/mcp/upload/66d17169-d2b7-4bbb-9bc2-03157a91283c/submit?scaleMode=FILL\")",
-      "Bash(curl -sS -X POST -H \"Content-Type: image/png\" --data-binary @/tmp/flow-rider-details.png \"https://mcp.figma.com/mcp/upload/55d758e5-0496-4994-8ca9-c5d7c14bcc65/submit?scaleMode=FILL\")"
+      "Bash(curl -sS -X POST -H \"Content-Type: image/png\" --data-binary @/tmp/flow-rider-details.png \"https://mcp.figma.com/mcp/upload/55d758e5-0496-4994-8ca9-c5d7c14bcc65/submit?scaleMode=FILL\")",
+      "Bash(node scripts/capture-splash.mjs)",
+      "Bash(curl -sS -X POST -H \"Content-Type: image/png\" --data-binary @/tmp/flow-splash.png \"https://mcp.figma.com/mcp/upload/383645ad-570a-4b2c-964f-fe41105ac16e/submit?scaleMode=FILL\")",
+      "Bash(node scripts/refresh-schedule-eventdetails.mjs)",
+      "Bash(curl -sS -X POST -H \"Content-Type: image/png\" --data-binary @/tmp/flow-schedule.png \"https://mcp.figma.com/mcp/upload/dfaa52ab-3621-4398-a3a7-941c509421d8/submit?scaleMode=FILL\")",
+      "Bash(curl -sS -X POST -H \"Content-Type: image/png\" --data-binary @/tmp/flow-event-details.png \"https://mcp.figma.com/mcp/upload/8fa7fb88-6ab6-4105-bbad-fe92fc93351c/submit?scaleMode=FILL\")"
     ]
   }
 }
