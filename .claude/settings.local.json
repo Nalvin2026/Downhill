@@ -43,7 +43,8 @@
       "Bash(node scripts/refresh-schedule-eventdetails.mjs)",
       "Bash(curl -sS -X POST -H \"Content-Type: image/png\" --data-binary @/tmp/flow-schedule.png \"https://mcp.figma.com/mcp/upload/dfaa52ab-3621-4398-a3a7-941c509421d8/submit?scaleMode=FILL\")",
       "Bash(curl -sS -X POST -H \"Content-Type: image/png\" --data-binary @/tmp/flow-event-details.png \"https://mcp.figma.com/mcp/upload/8fa7fb88-6ab6-4105-bbad-fe92fc93351c/submit?scaleMode=FILL\")",
-      "Bash(curl -s -o /tmp/rk-section.png \"https://www.figma.com/api/mcp/asset/de3bbc51-85ad-419f-ac3e-53584aec7ccf\")"
+      "Bash(curl -s -o /tmp/rk-section.png \"https://www.figma.com/api/mcp/asset/de3bbc51-85ad-419f-ac3e-53584aec7ccf\")",
+      "Bash(curl -sf http://localhost:5173)"
     ]
   }
 }
