@@ -1072,16 +1072,16 @@ export const riderProfiles = {
   },
 
   // ── UCI ELITE WOMEN — TOP 3 ──
-  'Vali Höll': {
+  'Valentina Höll': {
     nationality: 'AUT',
-    age: 24,
+    age: 25,
     height: '170 CM',
     weight: '62 KG',
-    bike: 'YT Tues',
-    team: 'YT Mob',
+    bike: 'Commencal Supreme V5',
+    team: 'Commencal Schwalbe by Les Orres',
     joined: '2019',
-    careerWins: 14,
-    wcPodiums: 39,
+    careerWins: 17,
+    wcPodiums: 44,
     bestResult: '2× WORLD CHAMPION',
     terrain: 'STEEP TECH',
     style: 'PRECISION / FAST HANDS',
