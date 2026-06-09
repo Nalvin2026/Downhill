@@ -17,7 +17,27 @@
       "WebFetch(domain:www.pinkbike.com)",
       "WebFetch(domain:mbaction.com)",
       "WebFetch(domain:www.vitalmtb.com)",
-      "WebFetch(domain:www.uci.org)"
+      "WebFetch(domain:www.uci.org)",
+      "mcp__figma__get_screenshot",
+      "mcp__figma__get_metadata",
+      "mcp__figma__use_figma",
+      "Bash(curl -s -o /tmp/ds-tokens-full.png \"https://www.figma.com/api/mcp/asset/1591ac5c-f2cd-4394-9fa8-2c3f8f34971e\")",
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /tmp/ds-primitives.png \"https://www.figma.com/api/mcp/asset/204efc4a-cfd6-4e41-8519-0b752e641407\")",
+      "Bash(curl -s -o /tmp/ds-full2.png \"https://www.figma.com/api/mcp/asset/ce4e49ca-3951-420c-b625-d8f9b48cafed\")",
+      "Bash(npx -y storybook@latest init --yes --skip-install)",
+      "Bash(curl -s http://localhost:6006)",
+      "Bash(npx playwright *)",
+      "Bash(curl -s http://localhost:5173)",
+      "Bash(node /tmp/capture-flow.mjs)",
+      "Bash(cp /tmp/capture-flow.mjs \"/Users/nikki@glucode.com/Desktop/AI Vault/Projects/Downhill/scripts/capture-flow.mjs\")",
+      "Bash(node scripts/capture-flow.mjs)",
+      "mcp__figma__upload_assets",
+      "Bash(curl -sS -X POST -H \"Content-Type: image/png\" --data-binary @/tmp/flow-schedule.png \"https://mcp.figma.com/mcp/upload/28b303e8-e663-44ff-9f98-1f47e7f60140/submit?scaleMode=FILL\")",
+      "Bash(curl -sS -X POST -H \"Content-Type: image/png\" --data-binary @/tmp/flow-rankings.png \"https://mcp.figma.com/mcp/upload/360d245d-78cd-4467-910a-4568ca2de7f4/submit?scaleMode=FILL\")",
+      "Bash(curl -sS -X POST -H \"Content-Type: image/png\" --data-binary @/tmp/flow-live.png \"https://mcp.figma.com/mcp/upload/0f0604c3-238c-4b20-b173-d208d489dbba/submit?scaleMode=FILL\")",
+      "Bash(curl -sS -X POST -H \"Content-Type: image/png\" --data-binary @/tmp/flow-event-details.png \"https://mcp.figma.com/mcp/upload/66d17169-d2b7-4bbb-9bc2-03157a91283c/submit?scaleMode=FILL\")",
+      "Bash(curl -sS -X POST -H \"Content-Type: image/png\" --data-binary @/tmp/flow-rider-details.png \"https://mcp.figma.com/mcp/upload/55d758e5-0496-4994-8ca9-c5d7c14bcc65/submit?scaleMode=FILL\")"
     ]
   }
 }
