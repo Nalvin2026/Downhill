@@ -1,6 +1,6 @@
 // Today's reference moment inside the app. Anything before this is "past".
 // The time-of-day matters because countdowns are day + hour.
-export const TODAY = new Date('2026-06-05T17:00:00')
+export const TODAY = new Date('2026-06-09T17:00:00')
 
 // IOC 3-letter country codes → full names used throughout the app.
 export const COUNTRY_NAMES = {
