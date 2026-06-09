@@ -557,16 +557,16 @@ export const eventDetails = {
       { day: 'SUN', label: 'FINALS', time: '12:00', status: 'upcoming' },
     ],
     previousPodium: {
-      year: 2025,
+      year: 2026,
       men: [
-        { rider: 'Patrick Butler',    country: 'AUT', time: '3:24.18' },
-        { rider: 'Joe Breeden',       country: 'GBR', time: '+0.62'   },
-        { rider: 'Hugo Frixtalon',    country: 'FRA', time: '+1.10'   },
+        { rider: 'Luke Williamson',            country: 'GBR', time: '2:59.257' },
+        { rider: 'Johan Garcin',               country: 'FRA', time: '+1.385'   },
+        { rider: 'Daniel Castellanos Liberal', country: 'ESP', time: '+1.400'   },
       ],
       women: [
-        { rider: 'Lisa Bouladou',     country: 'FRA', time: '3:51.40' },
-        { rider: 'Mille Johnset',     country: 'NOR', time: '+1.04'   },
-        { rider: 'Sian A’Hern',       country: 'AUS', time: '+2.18'   },
+        { rider: 'Isabeau Carrez Courdurier',  country: 'FRA', time: '3:30.767' },
+        { rider: 'Lais Bonnaure',              country: 'FRA', time: '+0.617'   },
+        { rider: 'Luana-Maria Chereches',      country: 'ROU', time: '+5.014'   },
       ],
     },
   },

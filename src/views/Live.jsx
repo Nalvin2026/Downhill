@@ -13,11 +13,42 @@ const f2 = (n) => n.toFixed(2)
 
 function useTicker(initial, fn, ms = 1000) {
   const [v, setV] = useState(initial)
+  // Keep the latest fn in a ref so the effect deps only include `ms`.
+  // Without this, rAF-driven 60fps re-renders elsewhere (useTimer /
+  // useSmoothValue) would re-create the inline fn every render →
+  // useEffect would tear down + re-init the interval before it ever
+  // fires its 400-1000ms callback, leaving the value frozen.
+  const fnRef = useRef(fn)
+  useEffect(() => { fnRef.current = fn })
   useEffect(() => {
-    const id = setInterval(() => setV((prev) => fn(prev)), ms)
+    const id = setInterval(() => setV((prev) => fnRef.current(prev)), ms)
     return () => clearInterval(id)
-  }, [fn, ms])
+  }, [ms])
   return v
+}
+
+/**
+ * Easing interpolation toward a moving target — runs at 60fps via rAF.
+ * Gives the rest of the UI a "needle sweep" feel instead of value snaps.
+ * `easing` 0..1 — higher = faster catch-up.
+ */
+function useSmoothValue(target, easing = 0.08) {
+  const [display, setDisplay] = useState(target)
+  const targetRef = useRef(target)
+  const displayRef = useRef(target)
+  useEffect(() => { targetRef.current = target }, [target])
+  useEffect(() => {
+    let raf
+    const tick = () => {
+      const next = displayRef.current + (targetRef.current - displayRef.current) * easing
+      displayRef.current = next
+      setDisplay(next)
+      raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [easing])
+  return display
 }
 
 function useTimer() {
@@ -75,16 +106,32 @@ export default function Live() {
   // Timer (faux race clock since component mounted; ticks at 60fps)
   const timer = useTimer()
 
-  // Fluctuating live values — small random walks so the dashboard feels alive
-  const speed = useTicker(64.2, (prev) => clamp(prev + rand(-3, 3), 38, 78), 700)
-  const gForce = useTicker(2.8, (prev) => clamp(prev + rand(-0.6, 0.6), 0.4, 4.6), 700)
+  // Target (raw) values — small random walks at ~2-3 Hz so the dashboard
+  // feels alive. Each underlying value is the "discrete" target.
+  const speedT = useTicker(64.2, (prev) => clamp(prev + rand(-4, 4), 38, 78), 500)
+  const gForceT = useTicker(2.8, (prev) => clamp(prev + rand(-0.7, 0.7), 0.4, 4.6), 500)
   const heartRate = useTicker(176, (prev) => clamp(Math.round(prev + rand(-4, 4)), 162, 198), 1100)
-  const lean = useTicker(28, (prev) => clamp(Math.round(prev + rand(-8, 8)), -38, 38), 900)
+  const leanT = useTicker(28, (prev) => clamp(prev + rand(-14, 14), -52, 52), 400)
   const gear = useTicker(7, (prev) => clamp(prev + (Math.random() > 0.7 ? rand(-1, 1, true) : 0), 4, 9), 1500)
   const cadence = useTicker(92, (prev) => clamp(Math.round(prev + rand(-6, 6)), 60, 115), 900)
   const brakeFront = useTicker(64, (prev) => clamp(Math.round(prev + rand(-8, 8)), 0, 95), 600)
   const brakeRear = useTicker(36, (prev) => clamp(Math.round(prev + rand(-6, 6)), 0, 80), 600)
   const wind = useTicker(14, (prev) => clamp(Math.round(prev + rand(-2, 2)), 6, 22), 4000)
+
+  // Smoothed display values — these are what the gauges + numbers render,
+  // so transitions sweep instead of snap.
+  const speed = useSmoothValue(speedT, 0.10)
+  const gForce = useSmoothValue(gForceT, 0.10)
+  const lean = useSmoothValue(leanT, 0.06)  // gentler easing for a heavier "gyro" feel
+
+  // Track max lean per direction across the whole run (resets on mount).
+  // Left = negative, Right = positive. Stored as the absolute value seen.
+  const [lMax, setLMax] = useState(48)
+  const [rMax, setRMax] = useState(42)
+  useEffect(() => {
+    if (leanT < 0 && Math.abs(leanT) > lMax) setLMax(Math.round(Math.abs(leanT)))
+    if (leanT > 0 && leanT > rMax) setRMax(Math.round(leanT))
+  }, [leanT, lMax, rMax])
 
   // 8-bucket HR history for the mini bar chart
   const [hrHistory, setHrHistory] = useState(() =>
@@ -338,40 +385,97 @@ export default function Live() {
         </div>
       </Panel>
 
-      {/* ── LEAN ANGLE ── */}
-      <Panel title="LEAN_ANGLE">
-        <div className="grid grid-cols-[1fr_auto] items-center gap-3">
-          <svg viewBox="0 0 100 60" className="block w-full">
-            {/* Horizon */}
-            <line x1="0" y1="55" x2="100" y2="55" stroke="#EDE9D8" strokeOpacity="0.3" strokeWidth="0.6" />
-            {/* Reference dotted radial */}
-            <g stroke="#EDE9D8" strokeOpacity="0.2" strokeWidth="0.5" strokeDasharray="1 2">
-              {[-30, -15, 0, 15, 30].map((deg) => {
-                const rad = (deg * Math.PI) / 180
-                const x = 50 + Math.sin(rad) * 38
-                const y = 55 - Math.cos(rad) * 38
-                return <line key={deg} x1="50" y1="55" x2={x} y2={y} />
-              })}
-            </g>
-            {/* Active lean line */}
-            {(() => {
-              const rad = (lean * Math.PI) / 180
-              const x = 50 + Math.sin(rad) * 38
-              const y = 55 - Math.cos(rad) * 38
+      {/* ── LEAN ANGLE — full-circle gyro gauge ── */}
+      <Panel
+        title="LEAN_ANGLE"
+        right={<span className="animate-pulseDot text-acid">● LIVE</span>}
+      >
+        <div className="grid grid-cols-[1fr_auto] items-center gap-4">
+          <svg viewBox="0 0 100 100" className="block w-full">
+            <defs>
+              {/* Soft acid glow around the needle */}
+              <filter id="needleGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="1.2" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            {/* Outer ring */}
+            <circle cx="50" cy="50" r="44" fill="none"
+                    stroke="#EDE9D8" strokeOpacity="0.35" strokeWidth="0.8" />
+            {/* Inner dotted ring */}
+            <circle cx="50" cy="50" r="28" fill="none"
+                    stroke="#EDE9D8" strokeOpacity="0.18" strokeWidth="0.6"
+                    strokeDasharray="1 2" />
+
+            {/* 12 tick marks (every 30°), thicker at cardinals */}
+            {Array.from({ length: 12 }).map((_, i) => {
+              const deg = i * 30
+              const rad = (deg * Math.PI) / 180
+              const isCard = i % 3 === 0
+              const inner = isCard ? 38 : 41
+              const outer = 44
+              const x1 = 50 + Math.sin(rad) * inner
+              const y1 = 50 - Math.cos(rad) * inner
+              const x2 = 50 + Math.sin(rad) * outer
+              const y2 = 50 - Math.cos(rad) * outer
               return (
-                <>
-                  <line x1="50" y1="55" x2={x} y2={y} stroke="#DBFF00" strokeWidth="2.4" strokeLinecap="square" />
-                  <circle cx="50" cy="55" r="2.4" fill="#DBFF00" />
-                </>
+                <line key={i} x1={x1} y1={y1} x2={x2} y2={y2}
+                      stroke="#EDE9D8"
+                      strokeOpacity={isCard ? 0.7 : 0.3}
+                      strokeWidth={isCard ? 1.2 : 0.6} />
               )
-            })()}
+            })}
+
+            {/* Cardinal labels — 0 at top, 90 right, 180 bottom, 270 left */}
+            <text x="50" y="11" fontSize="4.5" fill="#EDE9D8" fillOpacity="0.7"
+                  textAnchor="middle" fontFamily="JetBrains Mono">0</text>
+            <text x="91" y="52" fontSize="4.5" fill="#EDE9D8" fillOpacity="0.55"
+                  textAnchor="middle" fontFamily="JetBrains Mono">R</text>
+            <text x="9" y="52" fontSize="4.5" fill="#EDE9D8" fillOpacity="0.55"
+                  textAnchor="middle" fontFamily="JetBrains Mono">L</text>
+
+            {/* Rotating group — the whole needle assembly */}
+            <g transform={`rotate(${lean} 50 50)`} style={{ transition: 'none' }}>
+              {/* Glow halo behind the needle */}
+              <line x1="50" y1="50" x2="50" y2="9"
+                    stroke="#DBFF00" strokeOpacity="0.35"
+                    strokeWidth="6" strokeLinecap="round"
+                    filter="url(#needleGlow)" />
+              {/* Solid needle on top */}
+              <line x1="50" y1="50" x2="50" y2="9"
+                    stroke="#DBFF00" strokeWidth="3.2" strokeLinecap="round" />
+              {/* Counter-weight tail */}
+              <line x1="50" y1="50" x2="50" y2="62"
+                    stroke="#DBFF00" strokeWidth="2" strokeOpacity="0.55"
+                    strokeLinecap="round" />
+              {/* Tip dot */}
+              <circle cx="50" cy="9" r="2.4" fill="#DBFF00" />
+            </g>
+
+            {/* Pivot */}
+            <circle cx="50" cy="50" r="2.4" fill="#0A0A0A" stroke="#DBFF00" strokeWidth="1.2" />
           </svg>
+
           <div className="text-right">
-            <div className="font-display text-[28px] leading-none tabular-nums text-acid">
-              {Math.abs(lean)}°
+            <div className="font-display text-[34px] leading-none tabular-nums text-acid">
+              {Math.round(Math.abs(lean))}°
             </div>
             <div className="mt-1 font-mono text-[9px] uppercase tracking-widest text-bone/60">
-              {lean < 0 ? 'L_BANK' : 'R_BANK'}
+              {lean < -1 ? 'L_BANK' : lean > 1 ? 'R_BANK' : 'NEUTRAL'}
+            </div>
+            <div className="mt-3 space-y-1 font-mono text-[9px] uppercase tracking-widest text-bone/40">
+              <div className="flex items-baseline justify-between gap-3">
+                <span>L_MAX</span>
+                <span className="tabular-nums text-bone">{lMax}°</span>
+              </div>
+              <div className="flex items-baseline justify-between gap-3">
+                <span>R_MAX</span>
+                <span className="tabular-nums text-bone">{rMax}°</span>
+              </div>
             </div>
           </div>
         </div>
