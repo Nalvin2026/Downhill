@@ -235,14 +235,23 @@ export default function Live() {
             <div className="mb-1 h-[3px] w-full border-[1px] border-bone/20 bg-ink">
               <div className="h-full bg-acid" style={{ width: '64%' }} />
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden border-[2px] border-bone/40 bg-ink">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Amaury_Pierron_2022_MSA.jpg/500px-Amaury_Pierron_2022_MSA.jpg"
-                alt="Live cam feed"
+            <div className="cam-jitter relative aspect-[4/3] overflow-hidden border-[2px] border-bone/40 bg-ink">
+              {/* Live cam feed — short CC BY-SA looping DH clip from
+                  Wikimedia Commons. autoPlay + muted + playsInline so
+                  iOS Safari and PWAs play it without interaction. */}
+              <video
+                src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Beech_downhill_%2815_fps%29.webm"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                aria-label="Live cam feed"
                 className="absolute inset-0 h-full w-full object-cover grayscale brightness-75 contrast-125"
               />
-              {/* CRT scanline + vignette overlays */}
-              <div className="pointer-events-none absolute inset-0 scanline opacity-40" />
+              {/* Crawling CRT scanlines + brightness flicker */}
+              <div className="cam-scanline cam-flicker pointer-events-none absolute inset-0" />
+              {/* Vignette */}
               <div
                 className="pointer-events-none absolute inset-0"
                 style={{
@@ -250,10 +259,16 @@ export default function Live() {
                     'radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.6) 100%)',
                 }}
               />
+              {/* TV refresh sweep — acid scanline that sweeps top→bottom */}
+              <div className="cam-sweep pointer-events-none" />
               {/* REC pill */}
               <div className="absolute right-2 top-2 flex items-center gap-1 border-[1.5px] border-bone/60 bg-ink/80 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-widest text-bone/80">
                 <span className="block h-1.5 w-1.5 animate-pulseDot rounded-full bg-siren" />
                 REC
+              </div>
+              {/* CC-BY-SA attribution corner */}
+              <div className="absolute bottom-1 left-2 font-mono text-[7px] uppercase tracking-widest text-bone/50">
+                FOOTAGE · LITHIUMFLASH · CC BY-SA 4.0
               </div>
             </div>
             <div className="mt-1 border-[1.5px] border-bone/40 bg-ink px-2 py-1 font-mono text-[9px] uppercase tracking-widest text-bone/60">

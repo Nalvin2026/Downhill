@@ -106,6 +106,84 @@ body {
 /* No autofill chrome */
 input:-webkit-autofill { -webkit-box-shadow: 0 0 0 30px #0A0A0A inset; -webkit-text-fill-color: #EDE9D8; }
 
+/* ── Live cam feed animations ──
+   Faux "live race footage" treatment for the still rider image. The
+   combination of Ken Burns drift + scrolling scanlines + occasional
+   flicker + a periodic acid sweep makes the static photo feel like a
+   continuous broadcast cam. */
+
+@keyframes cam-kenburns {
+  0%   { transform: scale(1.10) translate(0%, 0%); }
+  20%  { transform: scale(1.18) translate(-2.5%, -1.8%); }
+  45%  { transform: scale(1.24) translate(1.5%, 1.2%); }
+  70%  { transform: scale(1.14) translate(2.2%, -1.2%); }
+  100% { transform: scale(1.10) translate(0%, 0%); }
+}
+.cam-kenburns {
+  animation: cam-kenburns 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes cam-scanline {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 -3px; }
+}
+.cam-scanline {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.07) 0 1px,
+    transparent 1px 3px
+  );
+  animation: cam-scanline 0.7s linear infinite;
+}
+
+@keyframes cam-flicker {
+  0%, 88%, 100% { opacity: 1; }
+  90%, 92%      { opacity: 0.78; }
+  91%           { opacity: 1.05; }
+  94%           { opacity: 0.94; }
+}
+.cam-flicker {
+  animation: cam-flicker 4.2s ease-in-out infinite;
+}
+
+@keyframes cam-jitter {
+  0%, 96%, 100% { transform: translate(0, 0); }
+  96.5% { transform: translate(-2px, 1px); }
+  97%   { transform: translate(1px, -1px); }
+  97.5% { transform: translate(-1px, 0); }
+  98%   { transform: translate(0, 0); }
+}
+.cam-jitter {
+  animation: cam-jitter 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Vertical acid scanline that sweeps top→bottom every few seconds —
+   that "TV refresh" pulse you see on real broadcast feeds. */
+@keyframes cam-sweep {
+  0%   { transform: translateY(-60%); opacity: 0; }
+  8%   { opacity: 0.55; }
+  92%  { opacity: 0.25; }
+  100% { transform: translateY(120%); opacity: 0; }
+}
+.cam-sweep {
+  position: absolute;
+  inset: -20% 0 auto 0;
+  height: 22%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(219, 255, 0, 0.0) 35%,
+    rgba(219, 255, 0, 0.45) 50%,
+    rgba(219, 255, 0, 0.0) 65%,
+    transparent 100%
+  );
+  mix-blend-mode: screen;
+  animation: cam-sweep 6.5s linear infinite;
+  will-change: transform, opacity;
+}
+
 /* ── Splash screen animations ── */
 @keyframes splash-fill {
   0%   { width: 0%; }
